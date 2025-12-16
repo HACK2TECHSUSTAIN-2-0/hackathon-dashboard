@@ -63,10 +63,21 @@ def total_windows_elapsed() -> int:
 
 def fetch_commits(repo: str):
     url = f"https://api.github.com/repos/{ORG}/{repo}/commits"
-    r = requests.get(url, headers=HEADERS)
-    if r.status_code != 200:
-        raise RuntimeError(f"{repo}: {r.status_code} {r.text}")
-    return r.json()
+    response = requests.get(url, headers=HEADERS)
+
+    if response.status_code == 404:
+        # Repo not yet created or inaccessible → treat as no activity
+        return []
+
+    if response.status_code != 200:
+        raise RuntimeError(
+            f"GitHub API error for repo '{repo}': "
+            f"{response.status_code} {response.text}"
+        )
+
+    data = response.json()
+    return data if isinstance(data, list) else []
+
 
 # -----------------------------
 # LOAD TEAMS (SOURCE OF TRUTH)
