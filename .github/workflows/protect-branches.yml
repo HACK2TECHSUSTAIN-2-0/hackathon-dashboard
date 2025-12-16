@@ -1,0 +1,25 @@
+name: Protect Team Branches
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 13 16 12 *"  # adjust to hackathon start UTC
+
+jobs:
+  protect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests
+
+      - name: Apply branch protection
+        env:
+          GITHUB_TOKEN: ${{ secrets.DASHBOARD_PUSH_TOKEN }}
+        run: python scripts/branch_protection.py
