@@ -23,7 +23,7 @@ jobs:
         run: |
           pip install requests openpyxl
 
-      - name: Run team registration
+      - name: Register teams & repos
         env:
           GITHUB_TOKEN: ${{ secrets.HTS_2_0_HACKATHON }}
         run: |
@@ -35,5 +35,5 @@ jobs:
           git config user.name "hackathon-bot"
           git config user.email "bot@hackathon.org"
           git add data/teams.json config/hackathonConfig.json
-          git commit -m "chore: sync team registration" || echo "No changes"
+          git commit -m "chore: sync teams from excel" || echo "No changes"
           git push
