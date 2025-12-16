@@ -2,4 +2,4 @@
 
 | Rank | Team | Compliance % | Valid Commits | Missed Windows |
 |----|----|----|----|----|
-| 1 | T001 | 100.0 | 2 | 0 |
+| 1 | T001 | 50.0 | 3 | 1 |

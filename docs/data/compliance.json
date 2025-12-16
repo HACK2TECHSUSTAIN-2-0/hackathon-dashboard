@@ -1,11 +1,14 @@
 {
   "t001-smart-agri-green-yield": {
-    "total_valid_commits": 2,
+    "total_valid_commits": 3,
     "windows_covered": [
       1
     ],
-    "missed_windows": [],
-    "total_windows": 1,
-    "compliance_percent": 100.0
+    "missed_windows": [
+      2
+    ],
+    "total_windows": 2,
+    "compliance_percent": 50.0,
+    "last_valid_commit_utc": "2025-12-16T13:13:21+00:00"
   }
 }
