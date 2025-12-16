@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background: #f7f7f7;
+}
+
+h1 {
+  color: #222;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: white;
+  margin-bottom: 30px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: #222;
+  color: white;
+}
+
+.ok { color: green; font-weight: bold; }
+.warn { color: orange; font-weight: bold; }
+.penalized { color: red; font-weight: bold; }
+.review { color: darkred; font-weight: bold; }
