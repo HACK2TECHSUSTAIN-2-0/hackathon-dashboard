@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>HTS 2.0 – Hackathon Dashboard</title>
+  <title>HTS 2.0 Hackathon Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,17 +11,39 @@
 <header>
   <div class="container">
     <h1>HTS 2.0 Hackathon</h1>
-    <p>Live Activity & Compliance Dashboard</p>
+    <p class="subtitle">National-Level Hackathon · Live Activity & Compliance Dashboard</p>
   </div>
 </header>
 
 <main class="container">
 
+  <!-- SUMMARY STATS -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-label">Total Teams</span>
+      <span class="stat-value" id="totalTeams">–</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Fully Compliant</span>
+      <span class="stat-value success" id="compliantTeams">–</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Warnings</span>
+      <span class="stat-value warning" id="warningTeams">–</span>
+    </div>
+    <div class="stat-card danger">
+      <span class="stat-label">Under Review</span>
+      <span class="stat-value danger" id="reviewTeams">–</span>
+    </div>
+  </section>
+
+  <!-- LEADERBOARD -->
   <section class="card">
     <h2>🏆 Leaderboard</h2>
     <div id="leaderboard"></div>
   </section>
 
+  <!-- PENALTIES -->
   <section class="card">
     <h2>⚠️ Activity Compliance</h2>
     <div id="penalties"></div>
@@ -30,13 +52,14 @@
   <section class="note">
     <p>
       📌 <strong>Note:</strong> This dashboard tracks activity discipline only.  
-      Final results are decided by judges based on innovation and quality.
+      Final results are decided by judges based on innovation and solution quality.
     </p>
   </section>
 
 </main>
 
 <footer>
+  <p>🟢 Updates automatically every 3 hours</p>
   <p>Powered by GitHub · HTS 2.0 Organizing Committee</p>
 </footer>
 
