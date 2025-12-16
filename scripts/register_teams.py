@@ -1,6 +1,7 @@
 import json
 import argparse
 import os
+import requests
 
 from excel_reader import read_excel
 from utils import slugify
@@ -13,12 +14,64 @@ HEADERS = {
     "Accept": "application/vnd.github+json"
 }
 
+# -------------------------
+# HELPERS
+# -------------------------
+
+def ensure_team(team_slug):
+    r = requests.get(
+        f"https://api.github.com/orgs/{ORG}/teams/{team_slug}",
+        headers=HEADERS
+    )
+
+    if r.status_code == 200:
+        return
+
+    if r.status_code == 404:
+        gh(HEADERS, "POST", f"/orgs/{ORG}/teams", json={
+            "name": team_slug,
+            "privacy": "secret"
+        })
+        return
+
+    raise RuntimeError(f"Team check failed: {r.status_code} {r.text}")
+
+
+def ensure_repo(repo_name, description):
+    r = requests.get(
+        f"https://api.github.com/repos/{ORG}/{repo_name}",
+        headers=HEADERS
+    )
+
+    if r.status_code == 200:
+        # Update description if repo exists
+        gh(
+            HEADERS,
+            "PATCH",
+            f"/repos/{ORG}/{repo_name}",
+            json={"description": description}
+        )
+        return
+
+    if r.status_code == 404:
+        gh(HEADERS, "POST", f"/orgs/{ORG}/repos", json={
+            "name": repo_name,
+            "private": True,
+            "description": description
+        })
+        return
+
+    raise RuntimeError(f"Repo check failed: {r.status_code} {r.text}")
+
+# -------------------------
+# MAIN
+# -------------------------
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--excel", required=True)
 args = parser.parse_args()
 
 rows = read_excel(args.excel)
-
 teams_db = {}
 
 for r in rows:
@@ -32,13 +85,12 @@ for r in rows:
     repo_name = slugify(team_name)
     team_slug = f"team-{team_id.lower()}"
 
-    # 1. Create team (safe if exists)
-    gh(HEADERS, "POST", f"/orgs/{ORG}/teams", json={
-        "name": team_slug,
-        "privacy": "secret"
-    })
+    description = f"TeamID: {team_id} | PS: {ps or 'Not assigned'}"
 
-    # 2. Add members to team
+    # 1️⃣ Team
+    ensure_team(team_slug)
+
+    # 2️⃣ Members
     for user in usernames:
         gh(
             HEADERS,
@@ -46,17 +98,11 @@ for r in rows:
             f"/orgs/{ORG}/teams/{team_slug}/memberships/{user}"
         )
 
-    # 3. Create repo (safe)
-    description = f"TeamID: {team_id} | PS: {ps or 'Not assigned'}"
-    gh(HEADERS, "POST", f"/orgs/{ORG}/repos", json={
-        "name": repo_name,
-        "private": True,
-        "description": description
-    })
+    # 3️⃣ Repo
+    ensure_repo(repo_name, description)
 
-    # 4. Permission logic
+    # 4️⃣ Permissions
     permission = "push" if ps_id else "pull"
-
     gh(
         HEADERS,
         "PUT",
@@ -73,7 +119,10 @@ for r in rows:
         "access": permission
     }
 
-# Save metadata
+# -------------------------
+# SAVE METADATA
+# -------------------------
+
 os.makedirs("data", exist_ok=True)
 with open("data/teams.json", "w") as f:
     json.dump(teams_db, f, indent=2)
