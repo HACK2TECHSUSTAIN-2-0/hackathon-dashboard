@@ -2,8 +2,8 @@ import json
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-COMPLIANCE_FILE = BASE_DIR / "stats" / "compliance.json"
-PENALTY_FILE = BASE_DIR / "stats" / "penalties.json"
+COMPLIANCE_FILE = BASE_DIR / "docs" / "data" / "compliance.json"
+PENALTY_FILE = BASE_DIR / "docs" / "data" / "penalties.json"
 
 with open(COMPLIANCE_FILE) as f:
     compliance = json.load(f)
