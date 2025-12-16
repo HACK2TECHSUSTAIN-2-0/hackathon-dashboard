@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false 
+          persist-credentials: false  
 
       - uses: actions/setup-python@v5
         with:
@@ -37,5 +37,5 @@ jobs:
           git config user.name "hackathon-bot"
           git config user.email "bot@hackathon.org"
           git add data/teams.json config/hackathonConfig.json
-          git diff --cached --quiet ||  git commit -m "chore: sync teams from excel" || echo "No changes"
+          git diff --cached --quiet || git commit -m "chore: sync teams from excel"
           git push https://x-access-token:${{ secrets.DASHBOARD_PUSH_TOKEN }}@github.com/${{ github.repository }}.git
