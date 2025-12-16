@@ -6,57 +6,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
 <header>
   <div class="container">
     <h1>HTS 2.0 Hackathon</h1>
-    <p class="subtitle">National-Level Hackathon · Live Activity & Compliance Dashboard</p>
+    <p class="subtitle">
+      National-Level Hackathon · Live Activity & Compliance Dashboard
+    </p>
   </div>
 </header>
 
 <main class="container">
 
-  <!-- SUMMARY STATS -->
+  <!-- ================= SUMMARY STATS ================= -->
   <section class="stats-grid">
     <div class="stat-card">
       <span class="stat-label">Total Teams</span>
       <span class="stat-value" id="totalTeams">–</span>
     </div>
+
     <div class="stat-card">
       <span class="stat-label">Fully Compliant</span>
       <span class="stat-value success" id="compliantTeams">–</span>
     </div>
+
     <div class="stat-card">
       <span class="stat-label">Warnings</span>
       <span class="stat-value warning" id="warningTeams">–</span>
     </div>
+
     <div class="stat-card danger">
       <span class="stat-label">Under Review</span>
       <span class="stat-value danger" id="reviewTeams">–</span>
     </div>
   </section>
 
-  <!-- LEADERBOARD -->
+  <!-- ================= LEADERBOARD ================= -->
   <section class="card">
-    <h2>🏆 Leaderboard</h2>
+    <h2>🏆 Leaderboard — Team Activity Ranking</h2>
+
+    <!-- Medal Legend -->
+    <div style="font-size:14px;color:#64748b;margin-bottom:10px;">
+      🥇 Top 1 &nbsp; 🥈 Top 2 &nbsp; 🥉 Top 3
+    </div>
+
     <div id="leaderboard"></div>
   </section>
 
-  <!-- PENALTIES -->
+  <!-- ================= PENALTIES ================= -->
   <section class="card">
     <h2>⚠️ Activity Compliance</h2>
     <div id="penalties"></div>
   </section>
 
+  <!-- ================= NOTE ================= -->
   <section class="note">
     <p>
-      📌 <strong>Note:</strong> This dashboard tracks activity discipline only.  
-      Final results are decided by judges based on innovation and solution quality.
+      📌 <strong>Note:</strong> This dashboard tracks <strong>activity discipline only</strong>.  
+      Final results are decided by judges based on innovation, feasibility, and solution quality.
     </p>
   </section>
 
 </main>
+
+<hr style="border:none;height:1px;background:#e5e7eb;margin:40px 0;">
 
 <footer>
   <p>🟢 Updates automatically every 3 hours</p>
