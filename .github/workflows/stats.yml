@@ -31,6 +31,7 @@ jobs:
         run: |
           python scripts/compliance_tracker.py
           python scripts/generate_leaderboard.py
+          python scripts/apply_penalties.py
 
       - name: Commit results
         env:
