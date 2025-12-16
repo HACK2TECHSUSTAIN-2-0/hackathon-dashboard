@@ -1,32 +1,97 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
-  background: #f7f7f7;
+:root {
+  --primary: #1f2937;
+  --accent: #2563eb;
+  --bg: #f9fafb;
+  --card: #ffffff;
 }
 
-h1 {
-  color: #222;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: #111827;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: 24px 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+header p {
+  margin: 6px 0 0;
+  opacity: 0.9;
+}
+
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+main {
+  margin: 32px auto;
+}
+
+.card {
+  background: var(--card);
+  padding: 24px;
+  margin-bottom: 28px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+h2 {
+  margin-top: 0;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 8px;
 }
 
 table {
-  border-collapse: collapse;
   width: 100%;
-  background: white;
-  margin-bottom: 30px;
+  border-collapse: collapse;
+  margin-top: 16px;
 }
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  padding: 12px;
   text-align: center;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 th {
-  background: #222;
-  color: white;
+  background: #f3f4f6;
+  font-weight: 600;
 }
 
-.ok { color: green; font-weight: bold; }
-.warn { color: orange; font-weight: bold; }
-.penalized { color: red; font-weight: bold; }
-.review { color: darkred; font-weight: bold; }
+tr:hover {
+  background: #f9fafb;
+}
+
+.ok { color: #16a34a; font-weight: 600; }
+.warning { color: #d97706; font-weight: 600; }
+.penalized { color: #dc2626; font-weight: 600; }
+.review { color: #7c2d12; font-weight: 600; }
+
+.note {
+  background: #eff6ff;
+  border-left: 4px solid var(--accent);
+  padding: 16px;
+  border-radius: 6px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+  font-size: 14px;
+}
