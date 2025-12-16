@@ -3,8 +3,6 @@
   "window_hours": 3,
   "hackathon_start_utc": "2025-12-16T13:00:00Z",
   "repositories": [
-    "t001-smart-agri-green-yield",
-    "t002-health-ai-medical",
-    "t014-ui-platform"
+    "t001-smart-agri-green-yield"
   ]
 }
