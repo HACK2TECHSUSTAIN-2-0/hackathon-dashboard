@@ -1,0 +1,10 @@
+{
+  "organization": "HACK2TECHSUSTAIN-2-0",
+  "window_hours": 3,
+  "hackathon_start_utc": "2025-02-10T03:30:00Z",
+  "repositories": [
+    "t001-smart-agri-green-yield",
+    "t002-health-ai-medical",
+    "t014-ui-platform"
+  ]
+}
