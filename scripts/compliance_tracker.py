@@ -7,18 +7,20 @@ from pathlib import Path
 import os
 
 # -----------------------------
-# LOAD CONFIG
+# PATHS
 # -----------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 CONFIG_FILE = BASE_DIR / "config" / "hackathonConfig.json"
+TEAMS_FILE = BASE_DIR / "data" / "teams.json"
 OUTPUT_FILE = BASE_DIR / "docs" / "data" / "compliance.json"
 
-
+# -----------------------------
+# LOAD CONFIG
+# -----------------------------
 with open(CONFIG_FILE) as f:
     CONFIG = json.load(f)
 
 ORG = CONFIG["organization"]
-REPOS = CONFIG["repositories"]
 WINDOW_HOURS = CONFIG["window_hours"]
 
 HACKATHON_START = datetime.strptime(
@@ -32,9 +34,8 @@ TEAM_PATTERN = re.compile(r"\[T\d{3}\]")
 # AUTH
 # -----------------------------
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
-
 if not GITHUB_TOKEN:
-    raise RuntimeError("GITHUB_TOKEN environment variable is not set")
+    raise RuntimeError("GITHUB_TOKEN not set")
 
 HEADERS = {
     "Authorization": f"token {GITHUB_TOKEN}",
@@ -45,7 +46,9 @@ HEADERS = {
 # HELPERS
 # -----------------------------
 def parse_time(ts: str) -> datetime:
-    return datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    return datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(
+        tzinfo=timezone.utc
+    )
 
 def get_window_number(commit_time: datetime) -> int | None:
     delta_hours = (commit_time - HACKATHON_START).total_seconds() / 3600
@@ -60,29 +63,39 @@ def total_windows_elapsed() -> int:
 
 def fetch_commits(repo: str):
     url = f"https://api.github.com/repos/{ORG}/{repo}/commits"
-    response = requests.get(url, headers=HEADERS)
-
-    if response.status_code != 200:
-        raise RuntimeError(
-            f"GitHub API error for repo '{repo}': "
-            f"{response.status_code} {response.text}"
-        )
-
-    data = response.json()
-
-    if not isinstance(data, list):
-        raise RuntimeError(
-            f"Unexpected API response for repo '{repo}': {data}"
-        )
-
-    return data
+    r = requests.get(url, headers=HEADERS)
+    if r.status_code != 200:
+        raise RuntimeError(f"{repo}: {r.status_code} {r.text}")
+    return r.json()
 
 # -----------------------------
-# MAIN LOGIC
+# LOAD TEAMS (SOURCE OF TRUTH)
+# -----------------------------
+with open(TEAMS_FILE) as f:
+    teams = json.load(f)
+
+# -----------------------------
+# INITIALIZE RESULTS (KEY FIX)
 # -----------------------------
 results = {}
 
-for repo in REPOS:
+for team_id, info in teams.items():
+    results[team_id] = {
+        "team_name": info["team_name"],          # exact Excel name
+        "repo": info["repo"],
+        "total_valid_commits": 0,
+        "windows_covered": [],
+        "missed_windows": [],
+        "total_windows": 0,
+        "compliance_percent": 0.0,
+        "last_valid_commit_time": "-"
+    }
+
+# -----------------------------
+# PROCESS COMMITS
+# -----------------------------
+for team_id, info in teams.items():
+    repo = info["repo"]
     commits = fetch_commits(repo)
 
     windows_covered = set()
@@ -96,7 +109,6 @@ for repo in REPOS:
             continue
 
         commit_time = parse_time(c["commit"]["author"]["date"])
-
         if commit_time < HACKATHON_START:
             continue
 
@@ -104,7 +116,6 @@ for repo in REPOS:
         if window:
             windows_covered.add(window)
             valid_commit_count += 1
-        
             if not last_commit_time or commit_time > last_commit_time:
                 last_commit_time = commit_time
 
@@ -118,24 +129,23 @@ for repo in REPOS:
         if total_windows > 0 else 0
     )
 
-    results[repo] = {
+    results[team_id].update({
         "total_valid_commits": valid_commit_count,
         "windows_covered": sorted(windows_covered),
         "missed_windows": missed_windows,
         "total_windows": total_windows,
         "compliance_percent": compliance,
-        "last_valid_commit_utc": (
-            last_commit_time.isoformat() if last_commit_time else None
+        "last_valid_commit_time": (
+            last_commit_time.strftime("%I:%M %p")
+            if last_commit_time else "-"
         )
-    }
-
+    })
 
 # -----------------------------
 # SAVE OUTPUT
 # -----------------------------
-OUTPUT_FILE.parent.mkdir(parents=True,exist_ok=True)
-
+OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 with open(OUTPUT_FILE, "w") as f:
     json.dump(results, f, indent=2)
 
-print("Compliance stats updated successfully.")
+print("Compliance stats updated successfully")
