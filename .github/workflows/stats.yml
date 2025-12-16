@@ -27,16 +27,17 @@ jobs:
 
       - name: Run compliance tracker
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HTS_2_0_HACKATHON }}
         run: |
           python scripts/compliance_tracker.py
+          python scripts/generate_leaderboard.py
 
       - name: Commit results
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HTS_2_0_HACKATHON }}
         run: |
           git config user.name "hackathon-bot"
           git config user.email "bot@hackathon.org"
-          git add stats/compliance.json
+          git add stats/compliance.json leaderboard.md
           git diff --cached --quiet || git commit -m "chore: update compliance stats"
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
