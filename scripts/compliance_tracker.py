@@ -27,8 +27,8 @@ HACKATHON_START = datetime.strptime(
 
 TEAM_PATTERN = re.compile(r"\[T\d{3}\]")
 
-GITHUB_TOKEN = os.environ.get("HTS_2_0_HACKATHON")
-HEADERS = {"Authorization": f"token {HTS_2_0_HACKATHON}"}
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+HEADERS = {"Authorization": f"token {GITHUB_TOKEN}"}
 
 # -----------------------------
 # HELPERS
