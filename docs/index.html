@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
   <title>HTS 2.0 Hackathon Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -11,71 +16,91 @@
 
 <header>
   <div class="container">
-    <h1>HTS 2.0 Hackathon</h1>
-    <p class="subtitle">
-      National-Level Hackathon · Live Activity & Compliance Dashboard
-    </p>
+    <div class="header-content">
+      <i class="fas fa-rocket header-icon"></i>
+      <div>
+        <h1>HTS 2.0 Hackathon</h1>
+        <p class="subtitle">
+          National-Level Hackathon · Live Activity & Compliance Dashboard
+        </p>
+      </div>
+    </div>
   </div>
 </header>
 
 <main class="container">
 
-  <!-- ================= SUMMARY STATS ================= -->
-  <section class="stats-grid">
-    <div class="stat-card">
-      <span class="stat-label">Total Teams</span>
-      <span class="stat-value" id="totalTeams">–</span>
-    </div>
-
-    <div class="stat-card">
-      <span class="stat-label">Fully Compliant</span>
-      <span class="stat-value success" id="compliantTeams">–</span>
-    </div>
-
-    <div class="stat-card">
-      <span class="stat-label">Warnings</span>
-      <span class="stat-value warning" id="warningTeams">–</span>
-    </div>
-
-    <div class="stat-card danger">
-      <span class="stat-label">Under Review</span>
-      <span class="stat-value danger" id="reviewTeams">–</span>
-    </div>
-  </section>
-
-  <!-- ================= LEADERBOARD ================= -->
+  <!-- ===== LEADERBOARD ===== -->
   <section class="card">
-    <h2>🏆 Leaderboard — Team Activity Ranking</h2>
+    <h2><i class="fas fa-trophy"></i> Leaderboard — Team Activity Ranking</h2>
 
-    <!-- Medal Legend -->
-    <div style="font-size:14px;color:#64748b;margin-bottom:10px;">
-      🥇 Top 1 &nbsp; 🥈 Top 2 &nbsp; 🥉 Top 3
+    <div class="medal-legend">
+      <span><i class="fas fa-medal gold"></i> 1st</span>
+      <span><i class="fas fa-medal silver"></i> 2nd</span>
+      <span><i class="fas fa-medal bronze"></i> 3rd</span>
     </div>
 
     <div id="leaderboard"></div>
   </section>
 
-  <!-- ================= PENALTIES ================= -->
+  <!-- ===== SUMMARY STATS ===== -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <i class="fas fa-users stat-icon"></i>
+      <span class="stat-label">Total Teams</span>
+      <span class="stat-value" id="totalTeams">–</span>
+      <span class="stat-desc">Registered participants</span>
+    </div>
+
+    <div class="stat-card success">
+      <i class="fas fa-check-circle stat-icon"></i>
+      <span class="stat-label">Fully Compliant</span>
+      <span class="stat-value" id="compliantTeams">–</span>
+      <span class="stat-desc">No violations</span>
+    </div>
+
+    <div class="stat-card warning">
+      <i class="fas fa-exclamation-triangle stat-icon"></i>
+      <span class="stat-label">Warnings</span>
+      <span class="stat-value" id="warningTeams">–</span>
+      <span class="stat-desc">Minor issues</span>
+    </div>
+
+    <div class="stat-card danger">
+      <i class="fas fa-times-circle stat-icon"></i>
+      <span class="stat-label">Under Review</span>
+      <span class="stat-value" id="reviewTeams">–</span>
+      <span class="stat-desc">Policy violations</span>
+    </div>
+  </section>
+
+  <!-- ===== COMPLIANCE ===== -->
   <section class="card">
-    <h2>⚠️ Activity Compliance</h2>
+    <h2><i class="fas fa-shield-alt"></i> Activity Compliance</h2>
     <div id="penalties"></div>
   </section>
 
-  <!-- ================= NOTE ================= -->
+  <!-- ===== NOTE ===== -->
   <section class="note">
+    <i class="fas fa-info-circle"></i>
     <p>
-      📌 <strong>Note:</strong> This dashboard tracks <strong>activity discipline only</strong>.  
-      Final results are decided by judges based on innovation, feasibility, and solution quality.
+      <strong>Note:</strong> This dashboard tracks <strong>repository activity discipline</strong> only.
+      Final rankings are decided by judges based on innovation, feasibility, and impact.
     </p>
   </section>
 
 </main>
 
-<hr style="border:none;height:1px;background:#e5e7eb;margin:40px 0;">
-
 <footer>
-  <p>🟢 Updates automatically every 3 hours</p>
-  <p>Powered by GitHub · HTS 2.0 Organizing Committee</p>
+  <div class="footer-content">
+    <p>
+      <i class="fas fa-sync-alt"></i> Auto-refresh every 60s &nbsp;•&nbsp;
+      <i class="fas fa-clock"></i> IST
+    </p>
+    <p>
+      <i class="fab fa-github"></i> GitHub Activity Monitor · HTS 2.0 Organizing Committee
+    </p>
+  </div>
 </footer>
 
 <script src="dashboard.js"></script>

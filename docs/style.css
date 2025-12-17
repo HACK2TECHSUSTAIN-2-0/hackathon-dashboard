@@ -1,14 +1,18 @@
 :root {
   --primary: #0f172a;
-  --primary-soft: #1e293b;
   --accent: #2563eb;
-  --accent-soft: #dbeafe;
   --success: #16a34a;
-  --warning: #d97706;
+  --warning: #f59e0b;
   --danger: #dc2626;
   --bg: #f8fafc;
   --card: #ffffff;
   --border: #e5e7eb;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 * {
@@ -18,198 +22,209 @@
 body {
   margin: 0;
   font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, #f8fafc, #eef2f7);
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
   color: var(--primary);
 }
 
-/* ---------------- HEADER ---------------- */
+/* ===== HEADER ===== */
 header {
-  background: radial-gradient(
-      circle at top left,
-      #2563eb 0%,
-      transparent 40%
-    ),
-    linear-gradient(135deg, #0f172a, #1e293b);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: white;
   padding: 36px 0;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 30px rgba(37, 99, 235, 0.35);
+  margin-bottom: 20px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 34px;
-  font-weight: 800;
-  letter-spacing: 0.4px;
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icon {
+  font-size: 48px;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
 .subtitle {
-  margin-top: 8px;
-  font-size: 15px;
   opacity: 0.9;
 }
 
-/* ---------------- LAYOUT ---------------- */
+/* ===== LAYOUT ===== */
 .container {
   width: 92%;
-  max-width: 1280px;
+  max-width: 1300px;
   margin: auto;
 }
 
 main {
-  margin: 44px auto;
+  margin: 40px auto;
 }
 
-/* ---------------- STATS ---------------- */
+/* ===== STATS ===== */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
   margin-bottom: 44px;
 }
 
 .stat-card {
-  background: linear-gradient(145deg, #ffffff, #f1f5f9);
-  padding: 22px 22px 24px;
-  border-radius: 18px;
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.6);
-  border-left: 6px solid var(--accent);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--card);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
 }
+
+.stat-card::before {
+  content: "";
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #6b7280;
+}
+
+.stat-card.success {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+}
+
+.stat-card.success::before { background: var(--success); }
+
+.stat-card.warning {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+.stat-card.warning::before { background: var(--warning); }
+
+.stat-card.danger {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+}
+
+.stat-card.danger::before { background: var(--danger); }
 
 .stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
 }
 
-.stat-card.danger { border-left-color: var(--danger); }
+.stat-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
 
 .stat-label {
-  font-size: 14px;
+  font-size: 13px;
+  text-transform: uppercase;
   color: #64748b;
-  letter-spacing: 0.3px;
 }
 
 .stat-value {
   font-size: 34px;
-  font-weight: 800;
-  margin-top: 10px;
+  font-weight: 700;
 }
 
-.success { color: var(--success); }
-.warning { color: var(--warning); }
-.danger { color: var(--danger); }
+.stat-desc {
+  font-size: 12px;
+  color: #94a3b8;
+}
 
-/* ---------------- CARDS ---------------- */
+/* ===== CARDS ===== */
 .card {
   background: var(--card);
-  padding: 28px;
-  margin-bottom: 36px;
-  border-radius: 18px;
-  box-shadow:
-    0 14px 40px rgba(15,23,42,0.08);
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 h2 {
-  margin: 0 0 16px;
-  padding-bottom: 10px;
-  font-size: 22px;
-  font-weight: 700;
-  border-bottom: 2px solid var(--border);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent);
 }
 
-/* ---------------- TABLES ---------------- */
+/* ===== TABLE ===== */
 table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin-top: 20px;
+  border-collapse: collapse;
+  border-radius: 12px;
   overflow: hidden;
-  border-radius: 14px;
 }
 
 th {
-  background: linear-gradient(180deg, #f1f5f9, #e5e7eb);
-  padding: 14px 12px;
-  font-size: 14px;
-  font-weight: 700;
-  color: #334155;
+  background: #f1f5f9;
+  padding: 14px;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
+  position: sticky;
+  top: 0;
+  text-align: center;
 }
 
 td {
-  padding: 14px 12px;
+  padding: 14px;
   border-bottom: 1px solid var(--border);
-  font-size: 15px;
-}
-
-tr:last-child td {
-  border-bottom: none;
-}
-
-tbody tr {
-  transition: background 0.15s ease;
+  text-align: center;
 }
 
 tbody tr:hover {
-  background: #f8fafc;
+  background: #e5e7eb;
 }
 
-/* ---------------- RANK HIGHLIGHT ---------------- */
-tbody tr:nth-child(1) td {
-  background: linear-gradient(90deg, #ecfeff, #f0fdf4);
-  font-weight: 700;
+/* ===== TOP RANK ===== */
+.top-rank td {
+  font-weight: 600;
 }
 
-tbody tr:nth-child(2) td {
-  background: #f0fdf4;
+.top-rank:nth-child(1) td {
+  background: linear-gradient(90deg, #dcfce7, #ecfeff);
 }
 
-tbody tr:nth-child(3) td {
-  background: #fff7ed;
-}
-
-/* ---------------- BADGES ---------------- */
+/* ===== BADGES ===== */
 .badge {
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 700;
-  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.badge.ok {
-  background: #dcfce7;
-  color: #166534;
+.badge.ok { background: #dcfce7; color: #166534; }
+.badge.warning { background: #fef3c7; color: #92400e; }
+.badge.review { background: #fee2e2; color: #991b1b; }
+
+/* ===== MEDALS ===== */
+.gold { color: #facc15; }
+.silver { color: #94a3b8; }
+.bronze { color: #f97316; }
+
+.medal-legend {
+  margin-bottom: 20px;
 }
 
-.badge.warning {
-  background: #fef3c7;
-  color: #92400e;
-}
-
-.badge.review,
-.badge.penalized {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-/* ---------------- NOTE ---------------- */
+/* ===== NOTE ===== */
 .note {
-  background: linear-gradient(90deg, #eff6ff, #ffffff);
+  background: #eff6ff;
   border-left: 5px solid var(--accent);
-  padding: 18px 20px;
+  padding: 18px;
   border-radius: 12px;
-  font-size: 15px;
 }
 
-/* ---------------- FOOTER ---------------- */
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 28px;
-  color: #64748b;
   font-size: 14px;
-  margin-top: 40px;
+  color: #64748b;
 }

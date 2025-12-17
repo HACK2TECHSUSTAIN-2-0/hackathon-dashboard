@@ -1,0 +1,17 @@
+{
+  "T001": {
+    "missed_windows": 8,
+    "penalty_level": "REVIEW",
+    "note": "Severe inactivity \u2013 review required"
+  },
+  "T002": {
+    "missed_windows": 8,
+    "penalty_level": "REVIEW",
+    "note": "Severe inactivity \u2013 review required"
+  },
+  "T003": {
+    "missed_windows": 8,
+    "penalty_level": "REVIEW",
+    "note": "Severe inactivity \u2013 review required"
+  }
+}
