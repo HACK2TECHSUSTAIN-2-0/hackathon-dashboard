@@ -1,10 +1,19 @@
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>H2TS 2.0 Hackathon Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="Live tracking dashboard for H2TS 2.0 National-Level Hackathon - Real-time team rankings, compliance monitoring, and activity tracking">
+  <meta name="theme-color" content="#00d9ff">
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -21,7 +30,7 @@
       <div>
         <h1>H2TS 2.0 Hackathon</h1>
         <p class="subtitle">
-          National-Level Hackathon · Live Activity & Compliance Dashboard
+          🌍 National-Level Hackathon · 🔴 Live Activity & Compliance Dashboard
         </p>
       </div>
     </div>
@@ -30,46 +39,46 @@
 
 <main class="container">
 
-  <!-- ===== LEADERBOARD ===== -->
-  <section class="card">
-    <h2><i class="fas fa-trophy"></i> Leaderboard — Team Activity Ranking</h2>
-    <div id="leaderboard"></div>
-  </section>
-
   <!-- ===== SUMMARY STATS ===== -->
   <section class="stats-grid">
     <div class="stat-card">
       <i class="fas fa-users stat-icon"></i>
       <span class="stat-label">Total Teams</span>
       <span class="stat-value" id="totalTeams">–</span>
-      <span class="stat-desc">Registered participants</span>
+      <span class="stat-desc">Registered Participants</span>
     </div>
 
     <div class="stat-card success">
       <i class="fas fa-check-circle stat-icon"></i>
       <span class="stat-label">Fully Compliant</span>
       <span class="stat-value" id="compliantTeams">–</span>
-      <span class="stat-desc">No violations</span>
+      <span class="stat-desc">Zero Violations</span>
     </div>
 
     <div class="stat-card warning">
       <i class="fas fa-exclamation-triangle stat-icon"></i>
       <span class="stat-label">Warnings</span>
       <span class="stat-value" id="warningTeams">–</span>
-      <span class="stat-desc">Minor issues</span>
+      <span class="stat-desc">Minor Issues Detected</span>
     </div>
 
     <div class="stat-card danger">
       <i class="fas fa-times-circle stat-icon"></i>
       <span class="stat-label">Under Review</span>
       <span class="stat-value" id="reviewTeams">–</span>
-      <span class="stat-desc">Policy violations</span>
+      <span class="stat-desc">Policy Violations</span>
     </div>
+  </section>
+
+  <!-- ===== LEADERBOARD ===== -->
+  <section class="card">
+    <h2><i class="fas fa-trophy"></i> Live Leaderboard — Team Activity Ranking</h2>
+    <div id="leaderboard"></div>
   </section>
 
   <!-- ===== COMPLIANCE ===== -->
   <section class="card">
-    <h2><i class="fas fa-shield-alt"></i> Activity Compliance</h2>
+    <h2><i class="fas fa-shield-alt"></i> Compliance & Activity Monitor</h2>
     <div id="penalties"></div>
   </section>
 
@@ -77,8 +86,8 @@
   <section class="note">
     <i class="fas fa-info-circle"></i>
     <p>
-      <strong>Note:</strong> This dashboard tracks <strong>repository activity discipline</strong> only.
-      Final rankings are decided by judges based on innovation, feasibility, and impact.
+      <strong>Important Notice:</strong> This dashboard monitors <strong>repository activity discipline</strong> and compliance metrics in real-time. 
+      Final hackathon rankings will be determined by our expert judges based on <strong>innovation, technical feasibility, sustainability impact, and presentation quality</strong>.
     </p>
   </section>
 
@@ -86,6 +95,10 @@
 
 <footer>
   <div class="footer-content">
+    <p>
+      <i class="fas fa-sync-alt"></i> Auto-refresh every 60s &nbsp;•&nbsp;
+      <i class="fas fa-clock"></i> Times in IST
+    </p>
     <p>
       <i class="fab fa-github"></i> GitHub Activity Monitor · H2TS 2.0 Organizing Committee
     </p>
