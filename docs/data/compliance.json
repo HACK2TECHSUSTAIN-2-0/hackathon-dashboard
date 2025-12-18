@@ -15,9 +15,10 @@
       8,
       9,
       10,
-      11
+      11,
+      12
     ],
-    "total_windows": 11,
+    "total_windows": 12,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -37,9 +38,10 @@
       8,
       9,
       10,
-      11
+      11,
+      12
     ],
-    "total_windows": 11,
+    "total_windows": 12,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -59,9 +61,10 @@
       8,
       9,
       10,
-      11
+      11,
+      12
     ],
-    "total_windows": 11,
+    "total_windows": 12,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   }
