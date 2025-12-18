@@ -1,6 +1,6 @@
 {
   "organization": "HACK2TECHSUSTAIN-2-0",
-  "window_hours": 0.5,
-  "hackathon_start_utc": "2025-12-18T18:30:00Z",
-  "hackathon_end_utc": "2025-12-18T19:30:00Z"
+  "window_hours": 0.333,
+  "hackathon_start_utc": "2025-12-18T19:00:00Z",
+  "hackathon_end_utc": "2025-12-18T20:00:00Z"
 }
