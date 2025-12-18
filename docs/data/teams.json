@@ -7,9 +7,9 @@
       "keerthanagb14",
       "lokesh-1511"
     ],
-    "problem_id": "L01",
-    "problem_title": "RAG BASED MODEL",
-    "access": "push"
+    "problem_id": null,
+    "problem_title": null,
+    "access": "pull"
   },
   "T002": {
     "team_name": "NeuroQuad",
@@ -19,9 +19,9 @@
       "sriram-2705",
       "arumugaperumal06"
     ],
-    "problem_id": "L02",
-    "problem_title": "ADVANCED LLM",
-    "access": "push"
+    "problem_id": null,
+    "problem_title": null,
+    "access": "pull"
   },
   "T003": {
     "team_name": "GRYFFINDERS",
@@ -31,9 +31,9 @@
       "thulasi-ravichandran",
       "vishy-18"
     ],
-    "problem_id": "L03",
-    "problem_title": "ADVANCED NLP",
-    "access": "push"
+    "problem_id": null,
+    "problem_title": null,
+    "access": "pull"
   },
   "T004": {
     "team_name": "RavenClaw",
@@ -43,9 +43,9 @@
       "subhasinipaulpandi23",
       "praveen95-cs"
     ],
-    "problem_id": "L04",
-    "problem_title": "CLOUD ",
-    "access": "push"
+    "problem_id": null,
+    "problem_title": null,
+    "access": "pull"
   },
   "T005": {
     "team_name": "SLyTHerin",
@@ -54,8 +54,8 @@
       "rakeshmm05",
       "vethavalligm"
     ],
-    "problem_id": "L05",
-    "problem_title": "NETWORKS",
-    "access": "push"
+    "problem_id": null,
+    "problem_title": null,
+    "access": "pull"
   }
 }
