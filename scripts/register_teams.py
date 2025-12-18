@@ -62,7 +62,7 @@ for r in rows:
 
 
     repo_name = slugify(team_name)
-    description = f"TeamID: {team_id} | PS: {ps or 'Not assigned'}"
+    description = f"TeamID: {team_id}"
 
     # 1️⃣ Repo
     ensure_repo(repo_name, description)
