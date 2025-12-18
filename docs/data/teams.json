@@ -1,0 +1,61 @@
+{
+  "T001": {
+    "team_name": "Hackathians",
+    "repo": "hackathians",
+    "members": [
+      "inba-m06",
+      "keerthanagb14",
+      "lokesh-1511"
+    ],
+    "problem_id": "L01",
+    "problem_title": "RAG BASED MODEL",
+    "access": "push"
+  },
+  "T002": {
+    "team_name": "NeuroQuad",
+    "repo": "neuroquad",
+    "members": [
+      "gokul-k-19",
+      "sriram-2705",
+      "arumugaperumal06"
+    ],
+    "problem_id": "L02",
+    "problem_title": "ADVANCED LLM",
+    "access": "push"
+  },
+  "T003": {
+    "team_name": "GRYFFINDERS",
+    "repo": "gryffinders",
+    "members": [
+      "jayasuriya-engineer",
+      "thulasi-ravichandran",
+      "vishy-18"
+    ],
+    "problem_id": "L03",
+    "problem_title": "ADVANCED NLP",
+    "access": "push"
+  },
+  "T004": {
+    "team_name": "RavenClaw",
+    "repo": "ravenclaw",
+    "members": [
+      "abishree730",
+      "subhasinipaulpandi23",
+      "praveen95-cs"
+    ],
+    "problem_id": "L04",
+    "problem_title": "CLOUD ",
+    "access": "push"
+  },
+  "T005": {
+    "team_name": "SLyTHerin",
+    "repo": "slytherin",
+    "members": [
+      "rakeshmm05",
+      "vethavalligm"
+    ],
+    "problem_id": "L05",
+    "problem_title": "NETWORKS",
+    "access": "push"
+  }
+}
