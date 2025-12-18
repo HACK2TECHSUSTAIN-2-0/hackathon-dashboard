@@ -46,10 +46,17 @@
       38,
       39,
       40,
-      41
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
     ],
-    "total_windows": 41,
-    "compliance_percent": 12.2,
+    "total_windows": 48,
+    "compliance_percent": 10.42,
     "last_valid_commit_time": "2025-12-18T11:59:39Z"
   },
   "T002": {
@@ -99,10 +106,17 @@
       38,
       39,
       40,
-      41
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
     ],
-    "total_windows": 41,
-    "compliance_percent": 12.2,
+    "total_windows": 48,
+    "compliance_percent": 10.42,
     "last_valid_commit_time": "2025-12-18T12:44:22Z"
   },
   "T003": {
@@ -151,9 +165,16 @@
       38,
       39,
       40,
-      41
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
     ],
-    "total_windows": 41,
+    "total_windows": 48,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -203,9 +224,16 @@
       38,
       39,
       40,
-      41
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
     ],
-    "total_windows": 41,
+    "total_windows": 48,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -255,9 +283,16 @@
       38,
       39,
       40,
-      41
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
     ],
-    "total_windows": 41,
+    "total_windows": 48,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   }
