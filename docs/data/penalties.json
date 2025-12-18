@@ -1,26 +1,26 @@
 {
   "T001": {
-    "missed_windows": 62,
+    "missed_windows": 69,
     "penalty_level": "REVIEW",
     "note": "Severe inactivity \u2013 review required"
   },
   "T002": {
-    "missed_windows": 62,
+    "missed_windows": 69,
     "penalty_level": "REVIEW",
     "note": "Severe inactivity \u2013 review required"
   },
   "T003": {
-    "missed_windows": 67,
+    "missed_windows": 74,
     "penalty_level": "REVIEW",
     "note": "Severe inactivity \u2013 review required"
   },
   "T004": {
-    "missed_windows": 67,
+    "missed_windows": 74,
     "penalty_level": "REVIEW",
     "note": "Severe inactivity \u2013 review required"
   },
   "T005": {
-    "missed_windows": 67,
+    "missed_windows": 74,
     "penalty_level": "REVIEW",
     "note": "Severe inactivity \u2013 review required"
   }
