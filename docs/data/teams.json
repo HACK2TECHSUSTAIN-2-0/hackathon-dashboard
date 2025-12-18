@@ -9,7 +9,7 @@
     ],
     "problem_id": null,
     "problem_title": null,
-    "access": "pull"
+    "access": "push"
   },
   "T002": {
     "team_name": "NeuroQuad",
@@ -21,7 +21,7 @@
     ],
     "problem_id": null,
     "problem_title": null,
-    "access": "pull"
+    "access": "push"
   },
   "T003": {
     "team_name": "GRYFFINDERS",
@@ -33,7 +33,7 @@
     ],
     "problem_id": null,
     "problem_title": null,
-    "access": "pull"
+    "access": "push"
   },
   "T004": {
     "team_name": "RavenClaw",
@@ -45,7 +45,7 @@
     ],
     "problem_id": null,
     "problem_title": null,
-    "access": "pull"
+    "access": "push"
   },
   "T005": {
     "team_name": "SLyTHerin",
@@ -56,6 +56,6 @@
     ],
     "problem_id": null,
     "problem_title": null,
-    "access": "pull"
+    "access": "push"
   }
 }
