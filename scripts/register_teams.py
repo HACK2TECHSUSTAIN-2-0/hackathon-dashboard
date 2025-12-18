@@ -19,25 +19,6 @@ HEADERS = {
 # HELPERS
 # -------------------------
 
-def ensure_team(team_slug):
-    r = requests.get(
-        f"https://api.github.com/orgs/{ORG}/teams/{team_slug}",
-        headers=HEADERS
-    )
-
-    if r.status_code == 200:
-        return
-
-    if r.status_code == 404:
-        gh(HEADERS, "POST", f"/orgs/{ORG}/teams", json={
-            "name": team_slug,
-            "privacy": "secret"
-        })
-        return
-
-    raise RuntimeError(f"Team check failed: {r.status_code} {r.text}")
-
-
 def ensure_repo(repo_name, description):
     r = requests.get(
         f"https://api.github.com/repos/{ORG}/{repo_name}",
@@ -45,7 +26,6 @@ def ensure_repo(repo_name, description):
     )
 
     if r.status_code == 200:
-        # Update description if repo exists
         gh(
             HEADERS,
             "PATCH",
@@ -84,32 +64,21 @@ for r in rows:
     ps = r.get("PS")
 
     repo_name = slugify(team_name)
-    team_slug = f"team-{team_id.lower()}"
-
     description = f"TeamID: {team_id} | PS: {ps or 'Not assigned'}"
 
-    # 1️⃣ Team
-    ensure_team(team_slug)
+    # 1️⃣ Repo
+    ensure_repo(repo_name, description)
 
-    # 2️⃣ Members
+    # 2️⃣ Outside collaborators
+    permission = "push" if ps_id else "pull"
+
     for user in usernames:
         gh(
             HEADERS,
             "PUT",
-            f"/orgs/{ORG}/teams/{team_slug}/memberships/{user}"
+            f"/repos/{ORG}/{repo_name}/collaborators/{user}",
+            json={"permission": permission}
         )
-
-    # 3️⃣ Repo
-    ensure_repo(repo_name, description)
-
-    # 4️⃣ Permissions
-    permission = "push" if ps_id else "pull"
-    gh(
-        HEADERS,
-        "PUT",
-        f"/orgs/{ORG}/teams/{team_slug}/repos/{ORG}/{repo_name}",
-        json={"permission": permission}
-    )
 
     teams_db[team_id] = {
         "team_name": team_name,
@@ -123,11 +92,11 @@ for r in rows:
 # -------------------------
 # SAVE METADATA
 # -------------------------
+
 OUTPUT_DIR = Path("docs/data")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 with open(OUTPUT_DIR / "teams.json", "w") as f:
     json.dump(teams_db, f, indent=2)
-
 
 print("Teams successfully registered / updated.")
