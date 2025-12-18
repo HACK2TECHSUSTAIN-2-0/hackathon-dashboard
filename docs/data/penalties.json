@@ -10,17 +10,17 @@
     "note": "Low activity detected"
   },
   "T003": {
-    "missed_windows": 4,
+    "missed_windows": 5,
     "penalty_level": "PENALIZED",
     "note": "Multiple activity gaps"
   },
   "T004": {
-    "missed_windows": 4,
+    "missed_windows": 5,
     "penalty_level": "PENALIZED",
     "note": "Multiple activity gaps"
   },
   "T005": {
-    "missed_windows": 4,
+    "missed_windows": 5,
     "penalty_level": "PENALIZED",
     "note": "Multiple activity gaps"
   }
