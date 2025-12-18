@@ -8,10 +8,11 @@
     ],
     "missed_windows": [
       1,
-      3
+      3,
+      4
     ],
-    "total_windows": 3,
-    "compliance_percent": 33.33,
+    "total_windows": 4,
+    "compliance_percent": 25.0,
     "last_valid_commit_time": "2025-12-18T11:39:53Z"
   },
   "T002": {
@@ -23,10 +24,11 @@
     ],
     "missed_windows": [
       2,
-      3
+      3,
+      4
     ],
-    "total_windows": 3,
-    "compliance_percent": 33.33,
+    "total_windows": 4,
+    "compliance_percent": 25.0,
     "last_valid_commit_time": "2025-12-18T11:33:19Z"
   },
   "T003": {
@@ -37,9 +39,10 @@
     "missed_windows": [
       1,
       2,
-      3
+      3,
+      4
     ],
-    "total_windows": 3,
+    "total_windows": 4,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -51,9 +54,10 @@
     "missed_windows": [
       1,
       2,
-      3
+      3,
+      4
     ],
-    "total_windows": 3,
+    "total_windows": 4,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -65,9 +69,10 @@
     "missed_windows": [
       1,
       2,
-      3
+      3,
+      4
     ],
-    "total_windows": 3,
+    "total_windows": 4,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   }
