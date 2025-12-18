@@ -1,7 +1,6 @@
 import requests
 import json
 import math
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 import os
@@ -27,8 +26,6 @@ HACKATHON_START = datetime.strptime(
     CONFIG["hackathon_start_utc"],
     "%Y-%m-%dT%H:%M:%SZ"
 ).replace(tzinfo=timezone.utc)
-
-TEAM_PATTERN = re.compile(r"\[T\d{3}\]")
 
 # -----------------------------
 # AUTH
@@ -116,11 +113,6 @@ for team_id, info in teams.items():
     last_commit_time = None
 
     for c in commits:
-        msg = c["commit"]["message"]
-
-        if not TEAM_PATTERN.search(msg):
-            continue
-
         commit_time = parse_time(c["commit"]["author"]["date"])
         if commit_time < HACKATHON_START:
             continue
