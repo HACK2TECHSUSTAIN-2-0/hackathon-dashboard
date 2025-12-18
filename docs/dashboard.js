@@ -3,111 +3,79 @@ const DATA_PATH = "data";
 /* ---------- UTILS ---------- */
 async function loadJSON(path) {
   const res = await fetch(`${path}?ts=${Date.now()}`);
+  if (!res.ok) throw new Error(`Failed to load ${path}`);
   return res.json();
 }
 
-function animateValue(id, end) {
-  let start = 0;
-  const el = document.getElementById(id);
-  const step = Math.max(1, Math.floor(end / 40));
+function formatTimeAMPM(utc) {
+  if (!utc || utc === "-") return "-";
 
-  const timer = setInterval(() => {
-    start += step;
-    if (start >= end) {
-      el.textContent = end;
-      clearInterval(timer);
-    } else {
-      el.textContent = start;
-    }
-  }, 20);
+  const d = new Date(utc);
+  return d.toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "Asia/Kolkata"
+  });
 }
 
 /* ---------- LEADERBOARD ---------- */
 async function renderLeaderboard() {
   const data = await loadJSON(`${DATA_PATH}/compliance.json`);
-  const rows = Object.values(data);
 
+  // Convert object → array while preserving team data
+  const rows = Object.entries(data).map(([teamId, t]) => ({
+    teamId,
+    teamName: t.team_name,
+    compliance: t.compliance_percent,
+    commits: t.total_valid_commits,
+    lastCommit: t.last_valid_commit_time,
+    missed: t.missed_windows.length
+  }));
+
+  // Sort: Compliance ↓ → Commits ↓ → Team Name ↑
   rows.sort((a, b) =>
-    b.compliance_percent - a.compliance_percent ||
-    b.total_valid_commits - a.total_valid_commits ||
-    a.team_name.localeCompare(b.team_name)
+    b.compliance - a.compliance ||
+    b.commits - a.commits ||
+    a.teamName.localeCompare(b.teamName)
   );
 
   let html = `
     <table>
-      <tr>
-        <th>Rank</th>
-        <th>Team</th>
-        <th>Compliance %</th>
-        <th>Commits</th>
-        <th>Last Commit</th>
-        <th>Missed</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Team Name</th>
+          <th>Compliance %</th>
+          <th>Valid Commits</th>
+          <th>Last Commit Time</th>
+          <th>Missed Windows</th>
+        </tr>
+      </thead>
+      <tbody>
   `;
 
-  rows.forEach((t, i) => {
+  rows.forEach((r, i) => {
     const medal = i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : "";
+
     html += `
       <tr class="${i < 3 ? "top-rank" : ""}">
         <td>${medal} ${i + 1}</td>
-        <td>${t.team_name}</td>
-        <td>${t.compliance_percent.toFixed(1)}</td>
-        <td>${t.total_valid_commits}</td>
-        <td>${t.last_valid_commit_time || "-"}</td>
-        <td>${t.missed_windows.length}</td>
+        <td>${r.teamName}</td>
+        <td>${r.compliance.toFixed(1)}</td>
+        <td>${r.commits}</td>
+        <td>${formatTimeAMPM(r.lastCommit)}</td>
+        <td>${r.missed}</td>
       </tr>
     `;
   });
 
-  html += "</table>";
+  html += "</tbody></table>";
+
   document.getElementById("leaderboard").innerHTML = html;
-
-  animateValue("totalTeams", rows.length);
-}
-
-/* ---------- PENALTIES ---------- */
-async function renderPenalties() {
-  const penalties = await loadJSON(`${DATA_PATH}/penalties.json`);
-  const teams = await loadJSON(`${DATA_PATH}/teams.json`);
-
-  let ok = 0, warning = 0, review = 0;
-
-  let html = `
-    <table>
-      <tr>
-        <th>Team</th>
-        <th>Status</th>
-        <th>Missed Windows</th>
-      </tr>
-  `;
-
-  Object.entries(penalties).forEach(([id, p]) => {
-    const level = p.penalty_level.toLowerCase();
-    if (level === "ok") ok++;
-    else if (level === "warning") warning++;
-    else review++;
-
-    html += `
-      <tr>
-        <td>${teams[id]?.team_name || id}</td>
-        <td><span class="badge ${level}">${p.penalty_level}</span></td>
-        <td>${p.missed_windows}</td>
-      </tr>
-    `;
-  });
-
-  html += "</table>";
-  document.getElementById("penalties").innerHTML = html;
-
-  animateValue("compliantTeams", ok);
-  animateValue("warningTeams", warning);
-  animateValue("reviewTeams", review);
+  document.getElementById("totalTeams").textContent = rows.length;
 }
 
 /* ---------- INIT ---------- */
 renderLeaderboard();
-renderPenalties();
-setInterval(() => {
-  renderLeaderboard();
-  renderPenalties();
-}, 60000);
+setInterval(renderLeaderboard, 60000);
