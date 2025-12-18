@@ -76,6 +76,58 @@ async function renderLeaderboard() {
   document.getElementById("totalTeams").textContent = rows.length;
 }
 
+/* ---------- PENALTIES ---------- */
+async function renderPenalties() {
+  const penalties = await loadJSON(`${DATA_PATH}/penalties.json`);
+  const compliance = await loadJSON(`${DATA_PATH}/compliance.json`);
+
+  let ok = 0, warning = 0, review = 0;
+
+  let html = `
+    <table>
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Status</th>
+          <th>Missed Windows</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  Object.entries(penalties).forEach(([teamId, p]) => {
+    const level = p.penalty_level.toLowerCase();
+    const teamName = compliance[teamId]?.team_name || teamId;
+
+    if (level === "ok") ok++;
+    else if (level === "warning") warning++;
+    else review++; // penalized + review
+
+    html += `
+      <tr>
+        <td>${teamName}</td>
+        <td><span class="badge ${level}">${p.penalty_level}</span></td>
+        <td>${p.missed_windows}</td>
+        <td>${p.note}</td>
+      </tr>
+    `;
+  });
+
+  html += "</tbody></table>";
+
+  document.getElementById("penalties").innerHTML = html;
+  document.getElementById("compliantTeams").textContent = ok;
+  document.getElementById("warningTeams").textContent = warning;
+  document.getElementById("reviewTeams").textContent = review;
+}
+
+
 /* ---------- INIT ---------- */
 renderLeaderboard();
-setInterval(renderLeaderboard, 60000);
+renderPenalties();
+
+setInterval(() => {
+  renderLeaderboard();
+  renderPenalties();
+}, 60000);
