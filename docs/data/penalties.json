@@ -5,7 +5,7 @@
     "note": "Severe inactivity \u2013 review required"
   },
   "T002": {
-    "missed_windows": 10,
+    "missed_windows": 9,
     "penalty_level": "REVIEW",
     "note": "Severe inactivity \u2013 review required"
   },
