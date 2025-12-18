@@ -2,15 +2,17 @@
   "T001": {
     "team_name": "Hackathians",
     "repo": "hackathians",
-    "total_valid_commits": 0,
-    "windows_covered": [],
-    "missed_windows": [
-      1,
+    "total_valid_commits": 1,
+    "windows_covered": [
       2
     ],
-    "total_windows": 2,
-    "compliance_percent": 0.0,
-    "last_valid_commit_time": "-"
+    "missed_windows": [
+      1,
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 33.33,
+    "last_valid_commit_time": "2025-12-18T11:39:53Z"
   },
   "T002": {
     "team_name": "NeuroQuad",
@@ -20,10 +22,11 @@
       1
     ],
     "missed_windows": [
-      2
+      2,
+      3
     ],
-    "total_windows": 2,
-    "compliance_percent": 50.0,
+    "total_windows": 3,
+    "compliance_percent": 33.33,
     "last_valid_commit_time": "2025-12-18T11:33:19Z"
   },
   "T003": {
@@ -33,9 +36,10 @@
     "windows_covered": [],
     "missed_windows": [
       1,
-      2
+      2,
+      3
     ],
-    "total_windows": 2,
+    "total_windows": 3,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -46,9 +50,10 @@
     "windows_covered": [],
     "missed_windows": [
       1,
-      2
+      2,
+      3
     ],
-    "total_windows": 2,
+    "total_windows": 3,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -59,9 +64,10 @@
     "windows_covered": [],
     "missed_windows": [
       1,
-      2
+      2,
+      3
     ],
-    "total_windows": 2,
+    "total_windows": 3,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   }

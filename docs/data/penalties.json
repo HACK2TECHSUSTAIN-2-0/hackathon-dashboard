@@ -5,22 +5,22 @@
     "note": "Low activity detected"
   },
   "T002": {
-    "missed_windows": 1,
-    "penalty_level": "OK",
-    "note": "Compliant"
+    "missed_windows": 2,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
   },
   "T003": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   },
   "T004": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   },
   "T005": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   }
