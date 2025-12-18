@@ -2,14 +2,14 @@
   "T001": {
     "team_name": "Hackathians",
     "repo": "hackathians",
-    "total_valid_commits": 0,
-    "windows_covered": [],
-    "missed_windows": [
+    "total_valid_commits": 1,
+    "windows_covered": [
       1
     ],
+    "missed_windows": [],
     "total_windows": 1,
-    "compliance_percent": 0.0,
-    "last_valid_commit_time": "-"
+    "compliance_percent": 100.0,
+    "last_valid_commit_time": "07:28 AM"
   },
   "T002": {
     "team_name": "NeuroQuad",
