@@ -60,8 +60,6 @@ for r in rows:
     team_name = r["Team Name"].strip()
     usernames = [u.strip().lower() for u in r["GitHub Usernames"].split(",")]
 
-    ps_id = r.get("PS ID")
-    ps = r.get("PS")
 
     repo_name = slugify(team_name)
     description = f"TeamID: {team_id} | PS: {ps or 'Not assigned'}"
@@ -70,7 +68,7 @@ for r in rows:
     ensure_repo(repo_name, description)
 
     # 2️⃣ Outside collaborators
-    permission = "push" if ps_id else "pull"
+    permission = "push"
 
     for user in usernames:
         gh(
@@ -84,8 +82,6 @@ for r in rows:
         "team_name": team_name,
         "repo": repo_name,
         "members": usernames,
-        "problem_id": ps_id,
-        "problem_title": ps,
         "access": permission
     }
 
