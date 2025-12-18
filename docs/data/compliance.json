@@ -5,23 +5,26 @@
     "total_valid_commits": 0,
     "windows_covered": [],
     "missed_windows": [
-      1
+      1,
+      2
     ],
-    "total_windows": 1,
+    "total_windows": 2,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
   "T002": {
     "team_name": "NeuroQuad",
     "repo": "neuroquad",
-    "total_valid_commits": 0,
-    "windows_covered": [],
-    "missed_windows": [
+    "total_valid_commits": 1,
+    "windows_covered": [
       1
     ],
-    "total_windows": 1,
-    "compliance_percent": 0.0,
-    "last_valid_commit_time": "-"
+    "missed_windows": [
+      2
+    ],
+    "total_windows": 2,
+    "compliance_percent": 50.0,
+    "last_valid_commit_time": "2025-12-18T11:33:19Z"
   },
   "T003": {
     "team_name": "GRYFFINDERS",
@@ -29,9 +32,10 @@
     "total_valid_commits": 0,
     "windows_covered": [],
     "missed_windows": [
-      1
+      1,
+      2
     ],
-    "total_windows": 1,
+    "total_windows": 2,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -41,9 +45,10 @@
     "total_valid_commits": 0,
     "windows_covered": [],
     "missed_windows": [
-      1
+      1,
+      2
     ],
-    "total_windows": 1,
+    "total_windows": 2,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
@@ -53,9 +58,10 @@
     "total_valid_commits": 0,
     "windows_covered": [],
     "missed_windows": [
-      1
+      1,
+      2
     ],
-    "total_windows": 1,
+    "total_windows": 2,
     "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   }
