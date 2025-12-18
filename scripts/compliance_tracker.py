@@ -27,6 +27,11 @@ HACKATHON_START = datetime.strptime(
     "%Y-%m-%dT%H:%M:%SZ"
 ).replace(tzinfo=timezone.utc)
 
+HACKATHON_END = datetime.strptime(
+    CONFIG["hackathon_end_utc"],
+    "%Y-%m-%dT%H:%M:%SZ"
+).replace(tzinfo=timezone.utc)
+
 # -----------------------------
 # AUTH
 # -----------------------------
@@ -55,8 +60,17 @@ def get_window_number(commit_time: datetime) -> int | None:
 
 def total_windows_elapsed() -> int:
     now = datetime.now(timezone.utc)
-    elapsed_hours = (now - HACKATHON_START).total_seconds() / 3600
-    return max(0, math.ceil(elapsed_hours / WINDOW_HOURS))
+
+    # Freeze time at deadline
+    effective_time = min(now, HACKATHON_END)
+
+    elapsed_hours = (effective_time - HACKATHON_START).total_seconds() / 3600
+
+    if elapsed_hours <= 0:
+        return 0
+
+    return math.ceil(elapsed_hours / WINDOW_HOURS)
+
 
 def fetch_commits(repo: str):
     url = f"https://api.github.com/repos/{ORG}/{repo}/commits"
@@ -115,6 +129,8 @@ for team_id, info in teams.items():
     for c in commits:
         commit_time = parse_time(c["commit"]["author"]["date"])
         if commit_time < HACKATHON_START:
+            continue
+        if commit_time > HACKATHON_END:
             continue
 
         window = get_window_number(commit_time)
