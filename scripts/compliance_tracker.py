@@ -149,7 +149,7 @@ for team_id, info in teams.items():
         "total_windows": total_windows,
         "compliance_percent": compliance,
         "last_valid_commit_time": (
-            last_commit_time.strftime("%I:%M %p")
+            last_commit_time.strftime("%Y-%m-%dT%H:%M:%SZ")
             if last_commit_time else "-"
         )
     })
