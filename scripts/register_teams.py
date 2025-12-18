@@ -2,6 +2,7 @@ import json
 import argparse
 import os
 import requests
+from pathlib import Path
 
 from excel_reader import read_excel
 from utils import slugify
@@ -122,9 +123,11 @@ for r in rows:
 # -------------------------
 # SAVE METADATA
 # -------------------------
+OUTPUT_DIR = Path("docs/data")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-os.makedirs("data", exist_ok=True)
-with open("data/teams.json", "w") as f:
+with open(OUTPUT_DIR / "teams.json", "w") as f:
     json.dump(teams_db, f, indent=2)
+
 
 print("Teams successfully registered / updated.")
