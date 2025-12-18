@@ -11,7 +11,7 @@ import os
 # -----------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 CONFIG_FILE = BASE_DIR / "config" / "hackathonConfig.json"
-TEAMS_FILE = BASE_DIR / "data" / "teams.json"
+TEAMS_FILE = BASE_DIR / "docs" / "data" / "teams.json"
 OUTPUT_FILE = BASE_DIR / "docs" / "data" / "compliance.json"
 
 # -----------------------------
