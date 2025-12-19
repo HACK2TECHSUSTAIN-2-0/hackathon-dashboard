@@ -110,14 +110,14 @@
   "T010": {
     "team_name": "MIT",
     "repo": "mit",
-    "total_valid_commits": 0,
-    "windows_covered": [],
-    "missed_windows": [
+    "total_valid_commits": 1,
+    "windows_covered": [
       1
     ],
+    "missed_windows": [],
     "total_windows": 1,
-    "compliance_percent": 0.0,
-    "last_valid_commit_time": "-"
+    "compliance_percent": 100.0,
+    "last_valid_commit_time": "2025-12-19T06:46:35Z"
   },
   "T011": {
     "team_name": "Team PaperRex",
@@ -158,14 +158,14 @@
   "T014": {
     "team_name": "Zypheron",
     "repo": "zypheron",
-    "total_valid_commits": 0,
-    "windows_covered": [],
-    "missed_windows": [
+    "total_valid_commits": 1,
+    "windows_covered": [
       1
     ],
+    "missed_windows": [],
     "total_windows": 1,
-    "compliance_percent": 0.0,
-    "last_valid_commit_time": "-"
+    "compliance_percent": 100.0,
+    "last_valid_commit_time": "2025-12-19T06:46:56Z"
   },
   "T015": {
     "team_name": "CodeCarnivores",
