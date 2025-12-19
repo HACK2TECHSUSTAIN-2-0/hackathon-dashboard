@@ -35,7 +35,7 @@ HACKATHON_END = datetime.strptime(
 # -----------------------------
 # AUTH
 # -----------------------------
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
+GITHUB_TOKEN = os.environ.get("ORG_ADMIN_TOKEN")
 if not GITHUB_TOKEN:
     raise RuntimeError("GITHUB_TOKEN not set")
 
