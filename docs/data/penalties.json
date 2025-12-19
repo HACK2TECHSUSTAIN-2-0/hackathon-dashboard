@@ -1,13 +1,13 @@
 {
   "T001": {
-    "missed_windows": 2,
-    "penalty_level": "WARNING",
-    "note": "Low activity detected"
+    "missed_windows": 4,
+    "penalty_level": "PENALIZED",
+    "note": "Multiple activity gaps"
   },
   "T002": {
-    "missed_windows": 3,
-    "penalty_level": "WARNING",
-    "note": "Low activity detected"
+    "missed_windows": 4,
+    "penalty_level": "PENALIZED",
+    "note": "Multiple activity gaps"
   },
   "T003": {
     "missed_windows": 4,
