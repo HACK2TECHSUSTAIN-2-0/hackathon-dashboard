@@ -179,4 +179,16 @@
     ],
     "access": "push"
   }
+  "T018": {
+    "team_name": "Metazern Blitz",
+    "repo": "metazernblitz",
+    "members": [
+      "Jeevika6275",
+      "PRAVEEN-DON",
+      "Harshini-Purushothaman",
+      "RohithDUBBLY"
+    ],
+    "access": "push"
+  }
+  
 }
