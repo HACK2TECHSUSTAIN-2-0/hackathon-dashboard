@@ -10,7 +10,7 @@
     "note": "Compliant"
   },
   "T003": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
