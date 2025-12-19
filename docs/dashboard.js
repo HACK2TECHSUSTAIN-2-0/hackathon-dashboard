@@ -34,11 +34,14 @@ async function renderLeaderboard() {
   }));
 
   // Sort: Compliance ↓ → Commits ↓ → Team Name ↑
+ // Sort: Commits ↓ → Compliance ↓ → Last Commit ↓ → Team Name ↑
   rows.sort((a, b) =>
-    b.compliance - a.compliance ||
     b.commits - a.commits ||
+    b.compliance - a.compliance ||
+    new Date(b.lastCommit) - new Date(a.lastCommit) ||
     a.teamName.localeCompare(b.teamName)
   );
+
 
   let html = `
     <table>
