@@ -2,7 +2,7 @@ name: Hackathon Compliance Tracker
 
 on:
   schedule:
-    - cron: "0 */3 * * *"   # every 3 hours
+    - cron: "0 */3 * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,7 +25,7 @@ jobs:
 
       - name: Run compliance tracker
         env:
-          GITHUB_TOKEN: ${{ secrets.HTS_2_0_HACKATHON }}
+          ORG_ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
         run: |
           python scripts/compliance_tracker.py
           python scripts/generate_leaderboard.py
@@ -35,10 +33,10 @@ jobs:
 
       - name: Commit results
         env:
-          GITHUB_TOKEN: ${{ secrets.HTS_2_0_HACKATHON }}
+          ORG_ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
         run: |
           git config user.name "hackathon-bot"
           git config user.email "bot@hackathon.org"
           git add docs/data/compliance.json docs/data/penalties.json docs/data/leaderboard.md
           git diff --cached --quiet || git commit -m "chore: update compliance stats"
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
+          git push https://x-access-token:${ORG_ADMIN_TOKEN}@github.com/${{ github.repository }}.git
