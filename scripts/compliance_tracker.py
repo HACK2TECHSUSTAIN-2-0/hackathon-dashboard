@@ -4,11 +4,7 @@ import math
 from datetime import datetime, timezone
 from pathlib import Path
 import os
-
-# =============================
-# CONFIG
-# =============================
-MIN_LINES_CHANGED = 30   # anti-silly-commit rule
+MIN_LINES_CHANGED = 30
 
 # -----------------------------
 # PATHS
@@ -42,7 +38,7 @@ HACKATHON_END = datetime.strptime(
 # -----------------------------
 GITHUB_TOKEN = os.environ.get("ORG_ADMIN_TOKEN")
 if not GITHUB_TOKEN:
-    raise RuntimeError("ORG_ADMIN_TOKEN not set")
+    raise RuntimeError("GITHUB_TOKEN not set")
 
 HEADERS = {
     "Authorization": f"token {GITHUB_TOKEN}",
@@ -66,21 +62,24 @@ def get_window_number(commit_time: datetime) -> int | None:
 def total_windows_elapsed() -> int:
     now = datetime.now(timezone.utc)
     effective_time = min(now, HACKATHON_END)
+
     elapsed_hours = (effective_time - HACKATHON_START).total_seconds() / 3600
     if elapsed_hours <= 0:
         return 0
+
     return math.ceil(elapsed_hours / WINDOW_HOURS)
 
 # -----------------------------
-# FETCH COMMITS (PAGINATED)
+# FETCH ALL COMMITS (PAGINATED)
 # -----------------------------
 def fetch_commits(repo: str):
     all_commits = []
     page = 1
+
     since_iso = HACKATHON_START.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     while True:
-        r = requests.get(
+        response = requests.get(
             f"https://api.github.com/repos/{ORG}/{repo}/commits",
             headers=HEADERS,
             params={
@@ -90,16 +89,19 @@ def fetch_commits(repo: str):
             }
         )
 
-        if r.status_code in (404, 409):
+        if response.status_code in (404, 409):
             return []
 
-        if r.status_code != 200:
+        if response.status_code != 200:
             raise RuntimeError(
-                f"GitHub API error for repo '{repo}': {r.status_code} {r.text}"
+                f"GitHub API error for repo '{repo}': "
+                f"{response.status_code} {response.text}"
             )
 
-        batch = r.json()
-        if not batch:
+        batch = response.json()
+
+        # ✅ STOP only when GitHub returns EMPTY
+        if not isinstance(batch, list) or len(batch) == 0:
             break
 
         all_commits.extend(batch)
@@ -107,25 +109,6 @@ def fetch_commits(repo: str):
 
     return all_commits
 
-# -----------------------------
-# FETCH FULL COMMIT DETAILS
-# -----------------------------
-def fetch_commit_details(repo: str, sha: str):
-    r = requests.get(
-        f"https://api.github.com/repos/{ORG}/{repo}/commits/{sha}",
-        headers=HEADERS
-    )
-
-    if r.status_code == 404:
-        return None
-
-    if r.status_code != 200:
-        raise RuntimeError(
-            f"GitHub API error for commit {sha} in repo '{repo}': "
-            f"{r.status_code} {r.text}"
-        )
-
-    return r.json()
 
 # -----------------------------
 # LOAD TEAMS
@@ -136,8 +119,10 @@ with open(TEAMS_FILE) as f:
 # -----------------------------
 # INITIALIZE RESULTS
 # -----------------------------
-results = {
-    team_id: {
+results = {}
+
+for team_id, info in teams.items():
+    results[team_id] = {
         "team_name": info["team_name"],
         "repo": info["repo"],
         "total_valid_commits": 0,
@@ -147,8 +132,6 @@ results = {
         "compliance_percent": 0.0,
         "last_valid_commit_time": "-"
     }
-    for team_id, info in teams.items()
-}
 
 # -----------------------------
 # PROCESS EACH TEAM
@@ -162,47 +145,30 @@ for team_id, info in teams.items():
     last_commit_time = None
 
     for c in commits:
-        sha = c.get("sha")
-        if not sha:
-            continue
-
-        full = fetch_commit_details(repo, sha)
-        if not full:
-            continue
-
-        commit_info = full.get("commit", {})
+        commit_info = c.get("commit", {})
         committer = commit_info.get("committer", {})
         author = commit_info.get("author", {})
-
         raw_date = committer.get("date") or author.get("date")
         if not raw_date:
-            continue
+            continue  # skip malformed commit safely
 
         commit_time = parse_time(raw_date)
 
-        # ⛔ outside hackathon window
-        if commit_time < HACKATHON_START or commit_time > HACKATHON_END:
+        if commit_time < HACKATHON_START:
             continue
-
-        # 🔥 anti-silly-commit rule
-        stats = full.get("stats", {})
-        additions = stats.get("additions", 0)
-        deletions = stats.get("deletions", 0)
-
-        if (additions + deletions) < MIN_LINES_CHANGED:
+        if commit_time > HACKATHON_END:
             continue
 
         window = get_window_number(commit_time)
-        if not window:
-            continue
+        if window:
+            windows_covered.add(window)
+            valid_commit_count += 1
 
-        windows_covered.add(window)
-        valid_commit_count += 1
-
-        if not last_commit_time or commit_time > last_commit_time:
-            last_commit_time = commit_time
+            if not last_commit_time or commit_time > last_commit_time:
+                last_commit_time = commit_time
 
     total_windows = total_windows_elapsed()
+
     missed_windows = sorted(
         set(range(1, total_windows + 1)) - windows_covered
     )
@@ -228,6 +194,7 @@ for team_id, info in teams.items():
 # SAVE OUTPUT
 # -----------------------------
 OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+
 with open(OUTPUT_FILE, "w") as f:
     json.dump(results, f, indent=2)
 
