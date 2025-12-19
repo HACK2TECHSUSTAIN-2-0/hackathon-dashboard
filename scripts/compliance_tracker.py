@@ -60,52 +60,64 @@ def get_window_number(commit_time: datetime) -> int | None:
 
 def total_windows_elapsed() -> int:
     now = datetime.now(timezone.utc)
-
-    # Freeze time at deadline
     effective_time = min(now, HACKATHON_END)
 
     elapsed_hours = (effective_time - HACKATHON_START).total_seconds() / 3600
-
     if elapsed_hours <= 0:
         return 0
 
     return math.ceil(elapsed_hours / WINDOW_HOURS)
 
-
+# -----------------------------
+# FETCH ALL COMMITS (PAGINATED)
+# -----------------------------
 def fetch_commits(repo: str):
-    url = f"https://api.github.com/repos/{ORG}/{repo}/commits"
-    response = requests.get(url, headers=HEADERS)
+    all_commits = []
+    page = 1
 
-    if response.status_code in (404, 409):
-        # 404 → repo missing
-        # 409 → repo exists but empty
-        return []
-
-    if response.status_code != 200:
-        raise RuntimeError(
-            f"GitHub API error for repo '{repo}': "
-            f"{response.status_code} {response.text}"
+    while True:
+        response = requests.get(
+            f"https://api.github.com/repos/{ORG}/{repo}/commits",
+            headers=HEADERS,
+            params={
+                "per_page": 100,
+                "page": page,
+                "sha": "main"  # default branch
+            }
         )
 
-    data = response.json()
-    return data if isinstance(data, list) else []
+        if response.status_code in (404, 409):
+            return []
 
+        if response.status_code != 200:
+            raise RuntimeError(
+                f"GitHub API error for repo '{repo}': "
+                f"{response.status_code} {response.text}"
+            )
 
+        batch = response.json()
+        if not batch:
+            break
+
+        all_commits.extend(batch)
+        page += 1
+
+    return all_commits
 
 # -----------------------------
-# LOAD TEAMS (SOURCE OF TRUTH)
+# LOAD TEAMS
 # -----------------------------
 with open(TEAMS_FILE) as f:
     teams = json.load(f)
 
 # -----------------------------
-# INITIALIZE RESULTS (KEY FIX)
+# INITIALIZE RESULTS
 # -----------------------------
 results = {}
 
 for team_id, info in teams.items():
     results[team_id] = {
-        "team_name": info["team_name"],          # exact Excel name
+        "team_name": info["team_name"],
         "repo": info["repo"],
         "total_valid_commits": 0,
         "windows_covered": [],
@@ -116,7 +128,7 @@ for team_id, info in teams.items():
     }
 
 # -----------------------------
-# PROCESS COMMITS
+# PROCESS EACH TEAM
 # -----------------------------
 for team_id, info in teams.items():
     repo = info["repo"]
@@ -127,7 +139,13 @@ for team_id, info in teams.items():
     last_commit_time = None
 
     for c in commits:
-        commit_time = parse_time(c["commit"]["author"]["date"])
+        raw_date = (
+            c["commit"]["committer"]["date"]
+            or c["commit"]["author"]["date"]
+        )
+
+        commit_time = parse_time(raw_date)
+
         if commit_time < HACKATHON_START:
             continue
         if commit_time > HACKATHON_END:
@@ -137,17 +155,19 @@ for team_id, info in teams.items():
         if window:
             windows_covered.add(window)
             valid_commit_count += 1
+
             if not last_commit_time or commit_time > last_commit_time:
                 last_commit_time = commit_time
 
     total_windows = total_windows_elapsed()
+
     missed_windows = sorted(
         set(range(1, total_windows + 1)) - windows_covered
     )
 
     compliance = (
         round((len(windows_covered) / total_windows) * 100, 2)
-        if total_windows > 0 else 0
+        if total_windows > 0 else 0.0
     )
 
     results[team_id].update({
@@ -166,7 +186,8 @@ for team_id, info in teams.items():
 # SAVE OUTPUT
 # -----------------------------
 OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+
 with open(OUTPUT_FILE, "w") as f:
     json.dump(results, f, indent=2)
 
-print("Compliance stats updated successfully")
+print("✅ Compliance stats updated successfully")
