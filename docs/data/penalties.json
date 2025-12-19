@@ -5,14 +5,14 @@
     "note": "Compliant"
   },
   "T002": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T003": {
-    "missed_windows": 3,
-    "penalty_level": "WARNING",
-    "note": "Low activity detected"
+    "missed_windows": 5,
+    "penalty_level": "PENALIZED",
+    "note": "Multiple activity gaps"
   },
   "T004": {
     "missed_windows": 1,
@@ -50,9 +50,9 @@
     "note": "Low activity detected"
   },
   "T011": {
-    "missed_windows": 2,
-    "penalty_level": "WARNING",
-    "note": "Low activity detected"
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
   },
   "T012": {
     "missed_windows": 4,
