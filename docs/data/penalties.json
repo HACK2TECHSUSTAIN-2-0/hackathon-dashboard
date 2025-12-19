@@ -1,6 +1,6 @@
 {
   "T001": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
@@ -60,7 +60,7 @@
     "note": "Low activity detected"
   },
   "T013": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
