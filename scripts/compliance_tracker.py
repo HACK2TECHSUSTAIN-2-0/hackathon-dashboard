@@ -4,6 +4,7 @@ import math
 from datetime import datetime, timezone
 from pathlib import Path
 import os
+MIN_LINES_CHANGED = 30
 
 # -----------------------------
 # PATHS
@@ -144,27 +145,49 @@ for team_id, info in teams.items():
     last_commit_time = None
 
     for c in commits:
-        commit_info = c.get("commit", {})
+        sha = c.get("sha")
+        if not sha:
+            continue
+    
+        full = fetch_commit_details(repo, sha)
+        if not full:
+            continue
+    
+        commit_info = full.get("commit", {})
         committer = commit_info.get("committer", {})
         author = commit_info.get("author", {})
+    
         raw_date = committer.get("date") or author.get("date")
         if not raw_date:
-            continue  # skip malformed commit safely
-
+            continue
+    
         commit_time = parse_time(raw_date)
-
-        if commit_time < HACKATHON_START:
+    
+        # ⛔ Outside hackathon window
+        if commit_time < HACKATHON_START or commit_time > HACKATHON_END:
             continue
-        if commit_time > HACKATHON_END:
+    
+        # 🔍 Line change validation (THIS IS THE KEY)
+        stats = full.get("stats", {})
+        additions = stats.get("additions", 0)
+        deletions = stats.get("deletions", 0)
+        lines_changed = additions + deletions
+    
+        # ❌ Silly commit → IGNORE
+        if lines_changed < MIN_LINES_CHANGED:
             continue
-
+    
+        # ✅ Valid commit
         window = get_window_number(commit_time)
-        if window:
-            windows_covered.add(window)
-            valid_commit_count += 1
-
-            if not last_commit_time or commit_time > last_commit_time:
-                last_commit_time = commit_time
+        if not window:
+            continue
+    
+        windows_covered.add(window)
+        valid_commit_count += 1
+    
+        if not last_commit_time or commit_time > last_commit_time:
+            last_commit_time = commit_time
+    
 
     total_windows = total_windows_elapsed()
 
