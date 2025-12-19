@@ -194,14 +194,14 @@
   "T017": {
     "team_name": "Code Blazers",
     "repo": "codeblazers",
-    "total_valid_commits": 0,
-    "windows_covered": [],
-    "missed_windows": [
+    "total_valid_commits": 2,
+    "windows_covered": [
       1
     ],
+    "missed_windows": [],
     "total_windows": 1,
-    "compliance_percent": 0.0,
-    "last_valid_commit_time": "-"
+    "compliance_percent": 100.0,
+    "last_valid_commit_time": "2025-12-19T06:34:41Z"
   },
   "T018": {
     "team_name": "Metazern Blitz",
