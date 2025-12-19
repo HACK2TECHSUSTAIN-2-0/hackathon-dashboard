@@ -1,23 +1,23 @@
 {
   "T001": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T002": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T003": {
-    "missed_windows": 1,
-    "penalty_level": "OK",
-    "note": "Compliant"
+    "missed_windows": 2,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
   },
   "T004": {
-    "missed_windows": 1,
-    "penalty_level": "OK",
-    "note": "Compliant"
+    "missed_windows": 2,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
   },
   "T005": {
     "missed_windows": 1,
@@ -25,27 +25,27 @@
     "note": "Compliant"
   },
   "T006": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T007": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T008": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T009": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T010": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   },
@@ -55,19 +55,19 @@
     "note": "Compliant"
   },
   "T012": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   },
   "T013": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T014": {
-    "missed_windows": 1,
-    "penalty_level": "OK",
-    "note": "Compliant"
+    "missed_windows": 2,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
   },
   "T015": {
     "missed_windows": 1,
@@ -80,7 +80,7 @@
     "note": "Compliant"
   },
   "T017": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   },
