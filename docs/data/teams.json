@@ -1,50 +1,181 @@
 {
   "T001": {
-    "team_name": "Hackathians",
-    "repo": "hackathians",
+    "team_name": "Blastorz",
+    "repo": "blastorz",
     "members": [
-      "inba-m06",
-      "keerthanagb14",
-      "lokesh-1511"
+      "Tushyent",
+      "shalonjovan",
+      "sgags-official",
+      "Kanagaarun-18"
     ],
     "access": "push"
   },
   "T002": {
-    "team_name": "NeuroQuad",
-    "repo": "neuroquad",
+    "team_name": "FantasticFour",
+    "repo": "fantasticfour",
     "members": [
-      "gokul-k-19",
-      "sriram-2705",
-      "arumugaperumal06"
+      "AJAY-M-S",
+      "SHIVARANJANE",
+      "jagan007-jp",
+      "Sriram-612"
     ],
     "access": "push"
   },
   "T003": {
-    "team_name": "GRYFFINDERS",
-    "repo": "gryffinders",
+    "team_name": "GreenPulse",
+    "repo": "greenpulse",
     "members": [
-      "jayasuriya-engineer",
-      "thulasi-ravichandran",
-      "vishy-18"
+      "Ajith-Anand-R",
+      "mani2k528-oss",
+      "aakash11c436-byte",
+      "Karthick511"
     ],
     "access": "push"
   },
   "T004": {
-    "team_name": "RavenClaw",
-    "repo": "ravenclaw",
+    "team_name": "PowerHouse",
+    "repo": "powerhouse",
     "members": [
-      "abishree730",
-      "subhasinipaulpandi23",
-      "praveen95-cs"
+      "king-3333333"
     ],
     "access": "push"
   },
   "T005": {
-    "team_name": "SLyTHerin",
-    "repo": "slytherin",
+    "team_name": "HUSTLE SQUAD",
+    "repo": "hustlesquad",
     "members": [
-      "rakeshmm05",
-      "vethavalligm"
+      "VaishnaviSubramaniam08",
+      "theunknownodysseus",
+      "VARSHINI1805",
+      "VENKATDHARSHINI24"
+    ],
+    "access": "push"
+  },
+  "T006": {
+    "team_name": "Codez",
+    "repo": "codez",
+    "members": [
+      "nakultt",
+      "sanjay29102"
+    ],
+    "access": "push"
+  },
+  "T007": {
+    "team_name": "Mavericks",
+    "repo": "mavericks",
+    "members": [
+      "Hexraei",
+      "Muffedd",
+      "Tharue01-glitch",
+      "Saibts"
+    ],
+    "access": "push"
+  },
+  "T008": {
+    "team_name": "comMIT",
+    "repo": "commit",
+    "members": [
+      "AswinSaathappan",
+      "sandyhem",
+      "Birundha-B",
+      "rvpranesh2006"
+    ],
+    "access": "push"
+  },
+  "T009": {
+    "team_name": "Iris",
+    "repo": "iris",
+    "members": [
+      "dhruthiaithal",
+      "NishtaShetty",
+      "sanjana-ak7",
+      "ShravaniB08"
+    ],
+    "access": "push"
+  },
+  "T010": {
+    "team_name": "MIT",
+    "repo": "mit",
+    "members": [
+      "Nandha1510",
+      "AdhishkumarT"
+    ],
+    "access": "push"
+  },
+  "T011": {
+    "team_name": "Team PaperRex",
+    "repo": "teampaperrex",
+    "members": [
+      "sayanthansm",
+      "shyamraj7292",
+      "Raahul2612",
+      "JashwanthB-09"
+    ],
+    "access": "push"
+  },
+  "T012": {
+    "team_name": "Vanguards",
+    "repo": "vanguards",
+    "members": [
+      "Priyan303",
+      "KIRUTHIKA-0911",
+      "iazgarmohammed",
+      "magathi264-dev"
+    ],
+    "access": "push"
+  },
+  "T013": {
+    "team_name": "4 pointer CS majors",
+    "repo": "4pointercsmajors",
+    "members": [
+      "Hari19hk",
+      "ssukesh182",
+      "Sanjay-1311",
+      "Srivatsan-24"
+    ],
+    "access": "push"
+  },
+  "T014": {
+    "team_name": "Zypheron",
+    "repo": "zypheron",
+    "members": [
+      "lithesh-m-84",
+      "code2de",
+      "iniya15",
+      "dineshx29"
+    ],
+    "access": "push"
+  },
+  "T015": {
+    "team_name": "CodeCarnivores",
+    "repo": "codecarnivores",
+    "members": [
+      "Dhivakar40",
+      "Rohit7606",
+      "rohithjagan",
+      "SarveshKarthikeyan"
+    ],
+    "access": "push"
+  },
+  "T016": {
+    "team_name": "Geekchics",
+    "repo": "geekchics",
+    "members": [
+      "Aashik1701",
+      "Venkatesan-M",
+      "Sriilekha",
+      "aswin-codes"
+    ],
+    "access": "push"
+  },
+  "T017": {
+    "team_name": "Code Blazers",
+    "repo": "codeblazers",
+    "members": [
+      "Haripriyan-K",
+      "Bharathi-Raj-V",
+      "vikasini-m-creator",
+      "Vaishnavi-2610"
     ],
     "access": "push"
   }
