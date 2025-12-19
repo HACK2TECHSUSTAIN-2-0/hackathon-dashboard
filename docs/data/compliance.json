@@ -4,14 +4,9 @@
     "repo": "hackathians",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "total_windows": 4,
-    "compliance_percent": 0.0,
+    "missed_windows": [],
+    "total_windows": 0,
+    "compliance_percent": 0,
     "last_valid_commit_time": "-"
   },
   "T002": {
@@ -19,14 +14,9 @@
     "repo": "neuroquad",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "total_windows": 4,
-    "compliance_percent": 0.0,
+    "missed_windows": [],
+    "total_windows": 0,
+    "compliance_percent": 0,
     "last_valid_commit_time": "-"
   },
   "T003": {
@@ -34,14 +24,9 @@
     "repo": "gryffinders",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "total_windows": 4,
-    "compliance_percent": 0.0,
+    "missed_windows": [],
+    "total_windows": 0,
+    "compliance_percent": 0,
     "last_valid_commit_time": "-"
   },
   "T004": {
@@ -49,14 +34,9 @@
     "repo": "ravenclaw",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "total_windows": 4,
-    "compliance_percent": 0.0,
+    "missed_windows": [],
+    "total_windows": 0,
+    "compliance_percent": 0,
     "last_valid_commit_time": "-"
   },
   "T005": {
@@ -64,14 +44,9 @@
     "repo": "slytherin",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "total_windows": 4,
-    "compliance_percent": 0.0,
+    "missed_windows": [],
+    "total_windows": 0,
+    "compliance_percent": 0,
     "last_valid_commit_time": "-"
   }
 }
