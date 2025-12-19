@@ -1,52 +1,218 @@
 {
   "T001": {
-    "team_name": "Hackathians",
-    "repo": "hackathians",
+    "team_name": "Blastorz",
+    "repo": "blastorz",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [],
-    "total_windows": 0,
-    "compliance_percent": 0,
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
   "T002": {
-    "team_name": "NeuroQuad",
-    "repo": "neuroquad",
+    "team_name": "FantasticFour",
+    "repo": "fantasticfour",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [],
-    "total_windows": 0,
-    "compliance_percent": 0,
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
   "T003": {
-    "team_name": "GRYFFINDERS",
-    "repo": "gryffinders",
+    "team_name": "GreenPulse",
+    "repo": "greenpulse",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [],
-    "total_windows": 0,
-    "compliance_percent": 0,
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
   "T004": {
-    "team_name": "RavenClaw",
-    "repo": "ravenclaw",
+    "team_name": "PowerHouse",
+    "repo": "powerhouse",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [],
-    "total_windows": 0,
-    "compliance_percent": 0,
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   },
   "T005": {
-    "team_name": "SLyTHerin",
-    "repo": "slytherin",
+    "team_name": "HUSTLE SQUAD",
+    "repo": "hustlesquad",
     "total_valid_commits": 0,
     "windows_covered": [],
-    "missed_windows": [],
-    "total_windows": 0,
-    "compliance_percent": 0,
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T006": {
+    "team_name": "Codez",
+    "repo": "codez",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T007": {
+    "team_name": "Mavericks",
+    "repo": "mavericks",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T008": {
+    "team_name": "comMIT",
+    "repo": "commit",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T009": {
+    "team_name": "Iris",
+    "repo": "iris",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T010": {
+    "team_name": "MIT",
+    "repo": "mit",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T011": {
+    "team_name": "Team PaperRex",
+    "repo": "teampaperrex",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T012": {
+    "team_name": "Vanguards",
+    "repo": "vanguards",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T013": {
+    "team_name": "4 pointer CS majors",
+    "repo": "4pointercsmajors",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T014": {
+    "team_name": "Zypheron",
+    "repo": "zypheron",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T015": {
+    "team_name": "CodeCarnivores",
+    "repo": "codecarnivores",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T016": {
+    "team_name": "Geekchics",
+    "repo": "geekchics",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T017": {
+    "team_name": "Code Blazers",
+    "repo": "codeblazers",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
+    "last_valid_commit_time": "-"
+  },
+  "T018": {
+    "team_name": "Metazern Blitz",
+    "repo": "metazernblitz",
+    "total_valid_commits": 0,
+    "windows_covered": [],
+    "missed_windows": [
+      1
+    ],
+    "total_windows": 1,
+    "compliance_percent": 0.0,
     "last_valid_commit_time": "-"
   }
 }

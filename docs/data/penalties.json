@@ -1,26 +1,91 @@
 {
   "T001": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T002": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T003": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T004": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T005": {
-    "missed_windows": 0,
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T006": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T007": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T008": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T009": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T010": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T011": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T012": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T013": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T014": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T015": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T016": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T017": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T018": {
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   }
