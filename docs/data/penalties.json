@@ -1,6 +1,6 @@
 {
   "T001": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
@@ -30,7 +30,7 @@
     "note": "Compliant"
   },
   "T007": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
