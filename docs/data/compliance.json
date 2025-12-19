@@ -62,14 +62,14 @@
   "T006": {
     "team_name": "Codez",
     "repo": "codez",
-    "total_valid_commits": 1,
+    "total_valid_commits": 2,
     "windows_covered": [
       1
     ],
     "missed_windows": [],
     "total_windows": 1,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T05:55:23Z"
+    "last_valid_commit_time": "2025-12-19T07:07:25Z"
   },
   "T007": {
     "team_name": "Mavericks",
@@ -134,14 +134,14 @@
   "T012": {
     "team_name": "Vanguards",
     "repo": "vanguards",
-    "total_valid_commits": 3,
+    "total_valid_commits": 4,
     "windows_covered": [
       1
     ],
     "missed_windows": [],
     "total_windows": 1,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T06:58:02Z"
+    "last_valid_commit_time": "2025-12-19T07:09:08Z"
   },
   "T013": {
     "team_name": "4 pointer CS majors",
@@ -194,14 +194,14 @@
   "T017": {
     "team_name": "Code Blazers",
     "repo": "codeblazers",
-    "total_valid_commits": 4,
+    "total_valid_commits": 5,
     "windows_covered": [
       1
     ],
     "missed_windows": [],
     "total_windows": 1,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T07:03:17Z"
+    "last_valid_commit_time": "2025-12-19T07:03:56Z"
   },
   "T018": {
     "team_name": "Metazern Blitz",
