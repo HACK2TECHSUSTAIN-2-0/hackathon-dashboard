@@ -27,7 +27,7 @@ jobs:
 
       - name: Register teams & repos
         env:
-          GITHUB_TOKEN: ${{ secrets.HTS_2_0_HACKATHON }}
+          GITHUB_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
         run: |
           python scripts/register_teams.py \
             --excel "${{ github.event.inputs.excel_path }}"
