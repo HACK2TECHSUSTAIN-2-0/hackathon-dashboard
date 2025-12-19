@@ -7,9 +7,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T10:17:39Z"
   },
   "T002": {
@@ -20,9 +22,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T11:15:22Z"
   },
   "T003": {
@@ -33,9 +37,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T11:24:57Z"
   },
   "T004": {
@@ -46,9 +52,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T08:35:04Z"
   },
   "T005": {
@@ -59,9 +67,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T08:54:54Z"
   },
   "T006": {
@@ -72,9 +82,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T11:24:19Z"
   },
   "T007": {
@@ -85,9 +97,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T09:48:33Z"
   },
   "T008": {
@@ -98,9 +112,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T11:26:35Z"
   },
   "T009": {
@@ -111,9 +127,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T10:41:30Z"
   },
   "T010": {
@@ -124,10 +142,11 @@
       1
     ],
     "missed_windows": [
-      2
+      2,
+      3
     ],
-    "total_windows": 2,
-    "compliance_percent": 50.0,
+    "total_windows": 3,
+    "compliance_percent": 33.33,
     "last_valid_commit_time": "2025-12-19T07:55:09Z"
   },
   "T011": {
@@ -138,9 +157,11 @@
       1,
       2
     ],
-    "missed_windows": [],
-    "total_windows": 2,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      3
+    ],
+    "total_windows": 3,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T11:20:04Z"
   },
   "T012": {
@@ -176,17 +197,17 @@
   "T014": {
     "team_name": "Zypheron",
     "repo": "zypheron",
-    "total_valid_commits": 1,
+    "total_valid_commits": 29,
     "windows_covered": [
-      2
-    ],
-    "missed_windows": [
-      1,
+      2,
       3
     ],
+    "missed_windows": [
+      1
+    ],
     "total_windows": 3,
-    "compliance_percent": 33.33,
-    "last_valid_commit_time": "2025-12-19T11:17:53Z"
+    "compliance_percent": 66.67,
+    "last_valid_commit_time": "2025-12-19T11:31:48Z"
   },
   "T015": {
     "team_name": "CodeCarnivores",
