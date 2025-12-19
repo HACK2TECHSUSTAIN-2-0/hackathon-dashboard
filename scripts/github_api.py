@@ -1,9 +1,16 @@
 import requests
 
-API = "https://api.github.com"
+BASE_URL = "https://api.github.com"
 
-def gh(headers, method, url, **kwargs):
-    r = requests.request(method, API + url, headers=headers, **kwargs)
-    if r.status_code not in (200, 201, 204):
+def gh(method, url, token, json=None):
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github+json"
+    }
+
+    r = requests.request(method, url, headers=headers, json=json)
+
+    if r.status_code >= 400:
         raise RuntimeError(f"{r.status_code}: {r.text}")
+
     return r.json() if r.text else None
