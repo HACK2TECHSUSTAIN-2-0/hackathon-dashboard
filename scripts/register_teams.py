@@ -1,98 +1,84 @@
-import json
-import argparse
 import os
-import requests
+import time
+import json
+import re
 from pathlib import Path
-
-from excel_reader import read_excel
-from utils import slugify
 from github_api import gh
 
+# ---------------- CONFIG ----------------
 ORG = "HACK2TECHSUSTAIN-2-0"
 
-HEADERS = {
-    "Authorization": f"token {os.environ['GITHUB_TOKEN']}",
-    "Accept": "application/vnd.github+json"
-}
+BASE_DIR = Path(__file__).resolve().parent.parent
+TEAMS_FILE = BASE_DIR / "docs" / "data" / "teams.json"
+COUNTER_FILE = BASE_DIR / "config" / "counters.json"
 
-# -------------------------
-# HELPERS
-# -------------------------
+TOKEN = os.environ.get("ORG_ADMIN_TOKEN")
+if not TOKEN:
+    raise RuntimeError("ORG_ADMIN_TOKEN is not set")
 
-def ensure_repo(repo_name, description):
-    r = requests.get(
-        f"https://api.github.com/repos/{ORG}/{repo_name}",
-        headers=HEADERS
+# ------------- INPUT (example) ----------
+TEAM_NAME = "4 Pointer"
+PROBLEM_SLUG = "smart-agri-green-yield"
+MEMBERS = ["mattmurdock1908"]  # GitHub usernames ONLY
+
+# ------------- HELPERS ------------------
+def slugify(name):
+    name = name.lower()
+    name = re.sub(r"[^a-z0-9]+", "-", name)
+    return name.strip("-")
+
+# ------------- LOAD COUNTER -------------
+counter = json.loads(COUNTER_FILE.read_text())
+team_num = counter["next_team_id"]
+
+team_id = f"T{team_num:03d}"
+team_slug = slugify(TEAM_NAME)
+repo_name = f"{team_id.lower()}-{team_slug}"
+
+# ------------- CREATE REPO --------------
+print(f"Creating repo: {repo_name}")
+
+gh(
+    "POST",
+    f"https://api.github.com/orgs/{ORG}/repos",
+    TOKEN,
+    json={
+        "name": repo_name,
+        "private": True,
+        "auto_init": True
+    }
+)
+
+# GitHub consistency delay (VERY IMPORTANT)
+time.sleep(3)
+
+# ------------- ADD OUTSIDE COLLABS -------
+for username in MEMBERS:
+    print(f"Inviting outside collaborator: {username}")
+
+    gh(
+        "PUT",
+        f"https://api.github.com/repos/{ORG}/{repo_name}/collaborators/{username}",
+        TOKEN,
+        json={"permission": "push"}
     )
 
-    if r.status_code == 200:
-        gh(
-            HEADERS,
-            "PATCH",
-            f"/repos/{ORG}/{repo_name}",
-            json={"description": description}
-        )
-        return
+# ------------- UPDATE FILES --------------
+teams = {}
+if TEAMS_FILE.exists():
+    teams = json.loads(TEAMS_FILE.read_text())
 
-    if r.status_code == 404:
-        gh(HEADERS, "POST", f"/orgs/{ORG}/repos", json={
-            "name": repo_name,
-            "private": True,
-            "description": description
-        })
-        return
+teams[team_id] = {
+    "team_name": TEAM_NAME,
+    "team_slug": team_slug,
+    "repo": repo_name,
+    "members": MEMBERS
+}
 
-    raise RuntimeError(f"Repo check failed: {r.status_code} {r.text}")
+TEAMS_FILE.parent.mkdir(parents=True, exist_ok=True)
+TEAMS_FILE.write_text(json.dumps(teams, indent=2))
 
-# -------------------------
-# MAIN
-# -------------------------
+counter["next_team_id"] += 1
+COUNTER_FILE.write_text(json.dumps(counter, indent=2))
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--excel", required=True)
-args = parser.parse_args()
-
-rows = read_excel(args.excel)
-teams_db = {}
-
-for r in rows:
-    team_id = r["TeamID"].strip().upper()
-    team_name = r["Team Name"].strip()
-    usernames = [u.strip().lower() for u in r["GitHub Usernames"].split(",")]
-
-
-    repo_name = slugify(team_name)
-    description = f"TeamID: {team_id}"
-
-    # 1️⃣ Repo
-    ensure_repo(repo_name, description)
-
-    # 2️⃣ Outside collaborators
-    permission = "push"
-
-    for user in usernames:
-        gh(
-            HEADERS,
-            "PUT",
-            f"/repos/{ORG}/{repo_name}/collaborators/{user}",
-            json={"permission": permission}
-        )
-
-    teams_db[team_id] = {
-        "team_name": team_name,
-        "repo": repo_name,
-        "members": usernames,
-        "access": permission
-    }
-
-# -------------------------
-# SAVE METADATA
-# -------------------------
-
-OUTPUT_DIR = Path("docs/data")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
-with open(OUTPUT_DIR / "teams.json", "w") as f:
-    json.dump(teams_db, f, indent=2)
-
-print("Teams successfully registered / updated.")
+print("✅ Team registered successfully")
