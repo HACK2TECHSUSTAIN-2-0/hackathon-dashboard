@@ -35,7 +35,7 @@
     "note": "Compliant"
   },
   "T008": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
@@ -75,7 +75,7 @@
     "note": "Compliant"
   },
   "T016": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
