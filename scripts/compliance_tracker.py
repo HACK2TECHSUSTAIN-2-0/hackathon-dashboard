@@ -75,12 +75,14 @@ def fetch_commits(repo: str):
     all_commits = []
     page = 1
 
+    since_iso = HACKATHON_START.strftime("%Y-%m-%dT%H:%M:%SZ")
+
     while True:
         response = requests.get(
             f"https://api.github.com/repos/{ORG}/{repo}/commits",
             headers=HEADERS,
             params={
-                "since": HACKATHON_START.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "since": since_iso,
                 "per_page": 100,
                 "page": page
             }
@@ -96,13 +98,16 @@ def fetch_commits(repo: str):
             )
 
         batch = response.json()
-        if not batch:
+
+        # ✅ STOP only when GitHub returns EMPTY
+        if not isinstance(batch, list) or len(batch) == 0:
             break
 
         all_commits.extend(batch)
         page += 1
 
     return all_commits
+
 
 # -----------------------------
 # LOAD TEAMS
@@ -139,10 +144,12 @@ for team_id, info in teams.items():
     last_commit_time = None
 
     for c in commits:
-        raw_date = (
-            c["commit"]["committer"]["date"]
-            or c["commit"]["author"]["date"]
-        )
+        commit_info = c.get("commit", {})
+        committer = commit_info.get("committer", {})
+        author = commit_info.get("author", {})
+        raw_date = committer.get("date") or author.get("date")
+        if not raw_date:
+            continue  # skip malformed commit safely
 
         commit_time = parse_time(raw_date)
 
