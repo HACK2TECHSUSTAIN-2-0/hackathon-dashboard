@@ -1,11 +1,11 @@
 {
   "T001": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T002": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
@@ -15,7 +15,7 @@
     "note": "Compliant"
   },
   "T004": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
@@ -25,22 +25,22 @@
     "note": "Compliant"
   },
   "T006": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T007": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T008": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T009": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
@@ -70,12 +70,12 @@
     "note": "Compliant"
   },
   "T015": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T016": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
@@ -85,7 +85,7 @@
     "note": "Compliant"
   },
   "T018": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   }
