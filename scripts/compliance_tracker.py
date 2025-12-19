@@ -80,9 +80,9 @@ def fetch_commits(repo: str):
             f"https://api.github.com/repos/{ORG}/{repo}/commits",
             headers=HEADERS,
             params={
+                "since": HACKATHON_START.strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "per_page": 100,
-                "page": page,
-                "sha": "main"  # default branch
+                "page": page
             }
         )
 
