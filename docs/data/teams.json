@@ -3,10 +3,10 @@
     "team_name": "Blastorz",
     "repo": "blastorz",
     "members": [
-      "Tushyent",
+      "tushyent",
       "shalonjovan",
       "sgags-official",
-      "Kanagaarun-18"
+      "kanagaarun-18"
     ],
     "access": "push"
   },
@@ -14,10 +14,10 @@
     "team_name": "FantasticFour",
     "repo": "fantasticfour",
     "members": [
-      "AJAY-M-S",
-      "SHIVARANJANE",
+      "ajay-m-s",
+      "shivaranjane",
       "jagan007-jp",
-      "Sriram-612"
+      "sriram-612"
     ],
     "access": "push"
   },
@@ -25,10 +25,10 @@
     "team_name": "GreenPulse",
     "repo": "greenpulse",
     "members": [
-      "Ajith-Anand-R",
+      "ajith-anand-r",
       "mani2k528-oss",
       "aakash11c436-byte",
-      "Karthick511"
+      "karthick511"
     ],
     "access": "push"
   },
@@ -44,10 +44,10 @@
     "team_name": "HUSTLE SQUAD",
     "repo": "hustlesquad",
     "members": [
-      "VaishnaviSubramaniam08",
+      "vaishnavisubramaniam08",
       "theunknownodysseus",
-      "VARSHINI1805",
-      "VENKATDHARSHINI24"
+      "varshini1805",
+      "venkatdharshini24"
     ],
     "access": "push"
   },
@@ -64,10 +64,10 @@
     "team_name": "Mavericks",
     "repo": "mavericks",
     "members": [
-      "Hexraei",
-      "Muffedd",
-      "Tharue01-glitch",
-      "Saibts"
+      "hexraei",
+      "muffedd",
+      "tharue01-glitch",
+      "saibts"
     ],
     "access": "push"
   },
@@ -75,9 +75,9 @@
     "team_name": "comMIT",
     "repo": "commit",
     "members": [
-      "AswinSaathappan",
+      "aswinsaathappan",
       "sandyhem",
-      "Birundha-B",
+      "birundha-b",
       "rvpranesh2006"
     ],
     "access": "push"
@@ -87,9 +87,9 @@
     "repo": "iris",
     "members": [
       "dhruthiaithal",
-      "NishtaShetty",
+      "nishtashetty",
       "sanjana-ak7",
-      "ShravaniB08"
+      "shravanib08"
     ],
     "access": "push"
   },
@@ -97,8 +97,8 @@
     "team_name": "MIT",
     "repo": "mit",
     "members": [
-      "Nandha1510",
-      "AdhishkumarT"
+      "nandha1510",
+      "adhishkumart"
     ],
     "access": "push"
   },
@@ -108,8 +108,8 @@
     "members": [
       "sayanthansm",
       "shyamraj7292",
-      "Raahul2612",
-      "JashwanthB-09"
+      "raahul2612",
+      "jashwanthb-09"
     ],
     "access": "push"
   },
@@ -117,8 +117,8 @@
     "team_name": "Vanguards",
     "repo": "vanguards",
     "members": [
-      "Priyan303",
-      "KIRUTHIKA-0911",
+      "priyan303",
+      "kiruthika-0911",
       "iazgarmohammed",
       "magathi264-dev"
     ],
@@ -128,10 +128,10 @@
     "team_name": "4 pointer CS majors",
     "repo": "4pointercsmajors",
     "members": [
-      "Hari19hk",
+      "hari19hk",
       "ssukesh182",
-      "Sanjay-1311",
-      "Srivatsan-24"
+      "sanjay-1311",
+      "srivatsan-24"
     ],
     "access": "push"
   },
@@ -150,10 +150,10 @@
     "team_name": "CodeCarnivores",
     "repo": "codecarnivores",
     "members": [
-      "Dhivakar40",
-      "Rohit7606",
+      "dhivakar40",
+      "rohit7606",
       "rohithjagan",
-      "SarveshKarthikeyan"
+      "sarveshkarthikeyan"
     ],
     "access": "push"
   },
@@ -161,9 +161,9 @@
     "team_name": "Geekchics",
     "repo": "geekchics",
     "members": [
-      "Aashik1701",
-      "Venkatesan-M",
-      "Sriilekha",
+      "aashik1701",
+      "venkatesan-m",
+      "sriilekha",
       "aswin-codes"
     ],
     "access": "push"
@@ -172,23 +172,22 @@
     "team_name": "Code Blazers",
     "repo": "codeblazers",
     "members": [
-      "Haripriyan-K",
-      "Bharathi-Raj-V",
+      "haripriyan-k",
+      "bharathi-raj-v",
       "vikasini-m-creator",
-      "Vaishnavi-2610"
+      "vaishnavi-2610"
     ],
     "access": "push"
-  }
+  },
   "T018": {
     "team_name": "Metazern Blitz",
     "repo": "metazernblitz",
     "members": [
-      "Jeevika6275",
-      "PRAVEEN-DON",
-      "Harshini-Purushothaman",
-      "RohithDUBBLY"
+      "jeevika6275",
+      "praveen-don",
+      "harshini-purushothaman",
+      "rohithdubbly"
     ],
     "access": "push"
   }
-  
 }
