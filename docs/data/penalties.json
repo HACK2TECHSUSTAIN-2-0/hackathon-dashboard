@@ -55,7 +55,7 @@
     "note": "Compliant"
   },
   "T012": {
-    "missed_windows": 1,
+    "missed_windows": 0,
     "penalty_level": "OK",
     "note": "Compliant"
   },
