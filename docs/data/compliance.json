@@ -2,18 +2,19 @@
   "T001": {
     "team_name": "Blastorz",
     "repo": "blastorz",
-    "total_valid_commits": 31,
+    "total_valid_commits": 32,
     "windows_covered": [
       1,
       2,
       3,
       4,
-      5
+      5,
+      6
     ],
     "missed_windows": [],
-    "total_windows": 5,
+    "total_windows": 6,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T19:56:47Z"
+    "last_valid_commit_time": "2025-12-19T20:30:30Z"
   },
   "T002": {
     "team_name": "FantasticFour",
@@ -26,9 +27,11 @@
       4,
       5
     ],
-    "missed_windows": [],
-    "total_windows": 5,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      6
+    ],
+    "total_windows": 6,
+    "compliance_percent": 83.33,
     "last_valid_commit_time": "2025-12-19T17:37:45Z"
   },
   "T003": {
@@ -42,28 +45,30 @@
     ],
     "missed_windows": [
       4,
-      5
+      5,
+      6
     ],
-    "total_windows": 5,
-    "compliance_percent": 60.0,
+    "total_windows": 6,
+    "compliance_percent": 50.0,
     "last_valid_commit_time": "2025-12-19T12:59:28Z"
   },
   "T004": {
     "team_name": "PowerHouse",
     "repo": "powerhouse",
-    "total_valid_commits": 7,
+    "total_valid_commits": 9,
     "windows_covered": [
       1,
       2,
       3,
-      5
+      5,
+      6
     ],
     "missed_windows": [
       4
     ],
-    "total_windows": 5,
-    "compliance_percent": 80.0,
-    "last_valid_commit_time": "2025-12-19T20:05:35Z"
+    "total_windows": 6,
+    "compliance_percent": 83.33,
+    "last_valid_commit_time": "2025-12-19T21:02:36Z"
   },
   "T005": {
     "team_name": "HUSTLE SQUAD",
@@ -76,58 +81,63 @@
       4,
       5
     ],
-    "missed_windows": [],
-    "total_windows": 5,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      6
+    ],
+    "total_windows": 6,
+    "compliance_percent": 83.33,
     "last_valid_commit_time": "2025-12-19T20:25:04Z"
   },
   "T006": {
     "team_name": "Codez",
     "repo": "codez",
-    "total_valid_commits": 45,
+    "total_valid_commits": 50,
     "windows_covered": [
       1,
       2,
       3,
       4,
-      5
+      5,
+      6
     ],
     "missed_windows": [],
-    "total_windows": 5,
+    "total_windows": 6,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T19:38:28Z"
+    "last_valid_commit_time": "2025-12-19T21:13:08Z"
   },
   "T007": {
     "team_name": "Mavericks",
     "repo": "mavericks",
-    "total_valid_commits": 12,
+    "total_valid_commits": 16,
     "windows_covered": [
       1,
       2,
       3,
       4,
-      5
+      5,
+      6
     ],
     "missed_windows": [],
-    "total_windows": 5,
+    "total_windows": 6,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T19:40:44Z"
+    "last_valid_commit_time": "2025-12-19T20:48:58Z"
   },
   "T008": {
     "team_name": "comMIT",
     "repo": "commit",
-    "total_valid_commits": 34,
+    "total_valid_commits": 37,
     "windows_covered": [
       1,
       2,
       3,
       4,
-      5
+      5,
+      6
     ],
     "missed_windows": [],
-    "total_windows": 5,
+    "total_windows": 6,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T20:15:58Z"
+    "last_valid_commit_time": "2025-12-19T21:00:51Z"
   },
   "T009": {
     "team_name": "Iris",
@@ -140,27 +150,30 @@
       4,
       5
     ],
-    "missed_windows": [],
-    "total_windows": 5,
-    "compliance_percent": 100.0,
+    "missed_windows": [
+      6
+    ],
+    "total_windows": 6,
+    "compliance_percent": 83.33,
     "last_valid_commit_time": "2025-12-19T20:14:25Z"
   },
   "T010": {
     "team_name": "MIT",
     "repo": "mit",
-    "total_valid_commits": 6,
+    "total_valid_commits": 8,
     "windows_covered": [
       1,
-      3
+      3,
+      6
     ],
     "missed_windows": [
       2,
       4,
       5
     ],
-    "total_windows": 5,
-    "compliance_percent": 40.0,
-    "last_valid_commit_time": "2025-12-19T12:39:47Z"
+    "total_windows": 6,
+    "compliance_percent": 50.0,
+    "last_valid_commit_time": "2025-12-19T20:30:54Z"
   },
   "T011": {
     "team_name": "Team PaperRex",
@@ -173,10 +186,11 @@
       4
     ],
     "missed_windows": [
-      5
+      5,
+      6
     ],
-    "total_windows": 5,
-    "compliance_percent": 80.0,
+    "total_windows": 6,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T16:39:52Z"
   },
   "T012": {
@@ -190,27 +204,29 @@
     "missed_windows": [
       2,
       4,
-      5
+      5,
+      6
     ],
-    "total_windows": 5,
-    "compliance_percent": 40.0,
+    "total_windows": 6,
+    "compliance_percent": 33.33,
     "last_valid_commit_time": "2025-12-19T12:27:11Z"
   },
   "T013": {
     "team_name": "4 pointer CS majors",
     "repo": "4pointercsmajors",
-    "total_valid_commits": 18,
+    "total_valid_commits": 19,
     "windows_covered": [
       1,
       2,
       3,
       4,
-      5
+      5,
+      6
     ],
     "missed_windows": [],
-    "total_windows": 5,
+    "total_windows": 6,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T19:48:52Z"
+    "last_valid_commit_time": "2025-12-19T20:57:56Z"
   },
   "T014": {
     "team_name": "Zypheron",
@@ -223,43 +239,46 @@
       5
     ],
     "missed_windows": [
-      1
+      1,
+      6
     ],
-    "total_windows": 5,
-    "compliance_percent": 80.0,
+    "total_windows": 6,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T20:09:12Z"
   },
   "T015": {
     "team_name": "CodeCarnivores",
     "repo": "codecarnivores",
-    "total_valid_commits": 9,
+    "total_valid_commits": 11,
     "windows_covered": [
       1,
       2,
       3,
       4,
-      5
+      5,
+      6
     ],
     "missed_windows": [],
-    "total_windows": 5,
+    "total_windows": 6,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T20:16:55Z"
+    "last_valid_commit_time": "2025-12-19T20:49:29Z"
   },
   "T016": {
     "team_name": "Geekchics",
     "repo": "geekchics",
-    "total_valid_commits": 18,
+    "total_valid_commits": 21,
     "windows_covered": [
       1,
       2,
       3,
       4,
-      5
+      5,
+      6
     ],
     "missed_windows": [],
-    "total_windows": 5,
+    "total_windows": 6,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T20:15:47Z"
+    "last_valid_commit_time": "2025-12-19T21:09:10Z"
   },
   "T017": {
     "team_name": "Code Blazers",
@@ -272,10 +291,11 @@
     "missed_windows": [
       3,
       4,
-      5
+      5,
+      6
     ],
-    "total_windows": 5,
-    "compliance_percent": 40.0,
+    "total_windows": 6,
+    "compliance_percent": 33.33,
     "last_valid_commit_time": "2025-12-19T09:39:59Z"
   },
   "T018": {
@@ -289,10 +309,11 @@
       4
     ],
     "missed_windows": [
-      5
+      5,
+      6
     ],
-    "total_windows": 5,
-    "compliance_percent": 80.0,
+    "total_windows": 6,
+    "compliance_percent": 66.67,
     "last_valid_commit_time": "2025-12-19T16:53:28Z"
   }
 }
