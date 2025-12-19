@@ -50,14 +50,14 @@
   "T005": {
     "team_name": "HUSTLE SQUAD",
     "repo": "hustlesquad",
-    "total_valid_commits": 0,
-    "windows_covered": [],
-    "missed_windows": [
+    "total_valid_commits": 3,
+    "windows_covered": [
       1
     ],
+    "missed_windows": [],
     "total_windows": 1,
-    "compliance_percent": 0.0,
-    "last_valid_commit_time": "-"
+    "compliance_percent": 100.0,
+    "last_valid_commit_time": "2025-12-19T06:13:43Z"
   },
   "T006": {
     "team_name": "Codez",
@@ -122,14 +122,14 @@
   "T011": {
     "team_name": "Team PaperRex",
     "repo": "teampaperrex",
-    "total_valid_commits": 0,
-    "windows_covered": [],
-    "missed_windows": [
+    "total_valid_commits": 7,
+    "windows_covered": [
       1
     ],
+    "missed_windows": [],
     "total_windows": 1,
-    "compliance_percent": 0.0,
-    "last_valid_commit_time": "-"
+    "compliance_percent": 100.0,
+    "last_valid_commit_time": "2025-12-19T07:04:59Z"
   },
   "T012": {
     "team_name": "Vanguards",
@@ -146,14 +146,14 @@
   "T013": {
     "team_name": "4 pointer CS majors",
     "repo": "4pointercsmajors",
-    "total_valid_commits": 0,
-    "windows_covered": [],
-    "missed_windows": [
+    "total_valid_commits": 2,
+    "windows_covered": [
       1
     ],
+    "missed_windows": [],
     "total_windows": 1,
-    "compliance_percent": 0.0,
-    "last_valid_commit_time": "-"
+    "compliance_percent": 100.0,
+    "last_valid_commit_time": "2025-12-19T06:10:12Z"
   },
   "T014": {
     "team_name": "Zypheron",
@@ -194,14 +194,14 @@
   "T017": {
     "team_name": "Code Blazers",
     "repo": "codeblazers",
-    "total_valid_commits": 5,
+    "total_valid_commits": 7,
     "windows_covered": [
       1
     ],
     "missed_windows": [],
     "total_windows": 1,
     "compliance_percent": 100.0,
-    "last_valid_commit_time": "2025-12-19T07:03:56Z"
+    "last_valid_commit_time": "2025-12-19T07:11:11Z"
   },
   "T018": {
     "team_name": "Metazern Blitz",
