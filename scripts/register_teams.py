@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEAMS_FILE = BASE_DIR / "docs" / "data" / "teams.json"
 COUNTER_FILE = BASE_DIR / "config" / "counters.json"
 
-TOKEN = os.environ.get("ORG_ADMIN_TOKEN")
+TOKEN = os.environ.get("GITHUB_TOKEN")
 if not TOKEN:
-    raise RuntimeError("ORG_ADMIN_TOKEN is not set")
+    raise RuntimeError("GITHUB_TOKEN is not set")
 
 # ------------- INPUT (example) ----------
 TEAM_NAME = "4 Pointer"
@@ -34,6 +34,14 @@ team_num = counter["next_team_id"]
 team_id = f"T{team_num:03d}"
 team_slug = slugify(TEAM_NAME)
 repo_name = f"{team_id.lower()}-{team_slug}"
+
+teams = {}
+if TEAMS_FILE.exists():
+    teams = json.loads(TEAMS_FILE.read_text())
+
+if team_id in teams:
+    print(f"ℹ️ Team {team_id} already registered, skipping GitHub operations")
+    exit(0)
 
 # ------------- CREATE REPO --------------
 print(f"Creating repo: {repo_name}")
