@@ -6,10 +6,10 @@ from pathlib import Path
 import os
 
 # =============================
-# RULE
+# COMMIT QUALITY RULE
 # =============================
-# Ignore empty-file commits (no content added)
-MIN_ADDITIONS = 1
+# Ignore empty commits and single-line commits
+MIN_TOTAL_LINES_CHANGED = 2  # additions + deletions >= 2
 
 # -----------------------------
 # PATHS
@@ -173,15 +173,16 @@ for team_id, info in teams.items():
 
         commit_time = parse_time(raw_date)
 
-        # ⛔ outside hackathon window
+        # ⛔ Outside hackathon window
         if commit_time < HACKATHON_START or commit_time > HACKATHON_END:
             continue
 
-        # 🔍 Ignore empty file commits
+        # 🔍 FILTER: empty + single-line commits
         stats = full.get("stats", {})
         additions = stats.get("additions", 0)
+        deletions = stats.get("deletions", 0)
 
-        if additions < MIN_ADDITIONS:
+        if (additions + deletions) < MIN_TOTAL_LINES_CHANGED:
             continue
 
         window = get_window_number(commit_time)
