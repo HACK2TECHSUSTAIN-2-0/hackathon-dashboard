@@ -1,6 +1,6 @@
 {
   "T001": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
@@ -10,14 +10,14 @@
     "note": "Compliant"
   },
   "T003": {
-    "missed_windows": 5,
-    "penalty_level": "PENALIZED",
-    "note": "Multiple activity gaps"
+    "missed_windows": 6,
+    "penalty_level": "REVIEW",
+    "note": "Severe inactivity \u2013 review required"
   },
   "T004": {
-    "missed_windows": 1,
-    "penalty_level": "OK",
-    "note": "Compliant"
+    "missed_windows": 2,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
   },
   "T005": {
     "missed_windows": 1,
@@ -30,7 +30,7 @@
     "note": "Compliant"
   },
   "T007": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
@@ -45,17 +45,17 @@
     "note": "Compliant"
   },
   "T010": {
-    "missed_windows": 3,
+    "missed_windows": 4,
+    "penalty_level": "PENALIZED",
+    "note": "Multiple activity gaps"
+  },
+  "T011": {
+    "missed_windows": 2,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   },
-  "T011": {
-    "missed_windows": 1,
-    "penalty_level": "OK",
-    "note": "Compliant"
-  },
   "T012": {
-    "missed_windows": 4,
+    "missed_windows": 5,
     "penalty_level": "PENALIZED",
     "note": "Multiple activity gaps"
   },
@@ -65,7 +65,7 @@
     "note": "Compliant"
   },
   "T014": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   },
@@ -75,17 +75,17 @@
     "note": "Compliant"
   },
   "T016": {
-    "missed_windows": 0,
+    "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
   "T017": {
-    "missed_windows": 4,
+    "missed_windows": 5,
     "penalty_level": "PENALIZED",
     "note": "Multiple activity gaps"
   },
   "T018": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   }
