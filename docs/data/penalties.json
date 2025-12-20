@@ -15,12 +15,12 @@
     "note": "Severe inactivity \u2013 review required"
   },
   "T004": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   },
   "T005": {
-    "missed_windows": 2,
+    "missed_windows": 3,
     "penalty_level": "WARNING",
     "note": "Low activity detected"
   },
@@ -45,9 +45,9 @@
     "note": "Low activity detected"
   },
   "T010": {
-    "missed_windows": 5,
-    "penalty_level": "PENALIZED",
-    "note": "Multiple activity gaps"
+    "missed_windows": 7,
+    "penalty_level": "REVIEW",
+    "note": "Severe inactivity \u2013 review required"
   },
   "T011": {
     "missed_windows": 2,
