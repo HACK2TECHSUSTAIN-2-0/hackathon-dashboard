@@ -5,12 +5,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 import os
 
-# =============================
-# COMMIT QUALITY RULE
-# =============================
-# Ignore empty commits and single-line commits
-MIN_TOTAL_LINES_CHANGED = 2  # additions + deletions >= 2
-
 # -----------------------------
 # PATHS
 # -----------------------------
@@ -39,7 +33,7 @@ HACKATHON_END = datetime.strptime(
 ).replace(tzinfo=timezone.utc)
 
 # -----------------------------
-# AUTH (READ ONLY)
+# AUTH
 # -----------------------------
 GITHUB_TOKEN = os.environ.get("ORG_ADMIN_TOKEN")
 if not GITHUB_TOKEN:
@@ -73,7 +67,7 @@ def total_windows_elapsed() -> int:
     return math.ceil(elapsed_hours / WINDOW_HOURS)
 
 # -----------------------------
-# FETCH COMMITS (LIST)
+# FETCH COMMITS (LIST ONLY)
 # -----------------------------
 def fetch_commits(repo: str):
     all_commits = []
@@ -107,18 +101,6 @@ def fetch_commits(repo: str):
         page += 1
 
     return all_commits
-
-# -----------------------------
-# FETCH FULL COMMIT DETAILS
-# -----------------------------
-def fetch_commit_details(repo: str, sha: str):
-    r = requests.get(
-        f"https://api.github.com/repos/{ORG}/{repo}/commits/{sha}",
-        headers=HEADERS
-    )
-    if r.status_code != 200:
-        return None
-    return r.json()
 
 # -----------------------------
 # LOAD TEAMS
@@ -155,15 +137,7 @@ for team_id, info in teams.items():
     last_commit_time = None
 
     for c in commits:
-        sha = c.get("sha")
-        if not sha:
-            continue
-
-        full = fetch_commit_details(repo, sha)
-        if not full:
-            continue
-
-        commit_info = full.get("commit", {})
+        commit_info = c.get("commit", {})
         committer = commit_info.get("committer", {})
         author = commit_info.get("author", {})
 
@@ -173,16 +147,7 @@ for team_id, info in teams.items():
 
         commit_time = parse_time(raw_date)
 
-        # ⛔ Outside hackathon window
         if commit_time < HACKATHON_START or commit_time > HACKATHON_END:
-            continue
-
-        # 🔍 FILTER: empty + single-line commits
-        stats = full.get("stats", {})
-        additions = stats.get("additions", 0)
-        deletions = stats.get("deletions", 0)
-
-        if (additions + deletions) < MIN_TOTAL_LINES_CHANGED:
             continue
 
         window = get_window_number(commit_time)
