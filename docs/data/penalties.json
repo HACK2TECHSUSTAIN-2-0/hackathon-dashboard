@@ -10,19 +10,19 @@
     "note": "Compliant"
   },
   "T003": {
-    "missed_windows": 5,
-    "penalty_level": "PENALIZED",
-    "note": "Multiple activity gaps"
+    "missed_windows": 6,
+    "penalty_level": "REVIEW",
+    "note": "Severe inactivity \u2013 review required"
   },
   "T004": {
-    "missed_windows": 1,
-    "penalty_level": "OK",
-    "note": "Compliant"
+    "missed_windows": 2,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
   },
   "T005": {
-    "missed_windows": 1,
-    "penalty_level": "OK",
-    "note": "Compliant"
+    "missed_windows": 2,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
   },
   "T006": {
     "missed_windows": 0,
@@ -30,22 +30,22 @@
     "note": "Compliant"
   },
   "T007": {
-    "missed_windows": 0,
-    "penalty_level": "OK",
-    "note": "Compliant"
-  },
-  "T008": {
-    "missed_windows": 0,
-    "penalty_level": "OK",
-    "note": "Compliant"
-  },
-  "T009": {
     "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
   },
+  "T008": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T009": {
+    "missed_windows": 2,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
+  },
   "T010": {
-    "missed_windows": 4,
+    "missed_windows": 5,
     "penalty_level": "PENALIZED",
     "note": "Multiple activity gaps"
   },
@@ -55,38 +55,38 @@
     "note": "Low activity detected"
   },
   "T012": {
-    "missed_windows": 4,
-    "penalty_level": "PENALIZED",
-    "note": "Multiple activity gaps"
-  },
-  "T013": {
-    "missed_windows": 0,
-    "penalty_level": "OK",
-    "note": "Compliant"
-  },
-  "T014": {
-    "missed_windows": 2,
-    "penalty_level": "WARNING",
-    "note": "Low activity detected"
-  },
-  "T015": {
-    "missed_windows": 0,
-    "penalty_level": "OK",
-    "note": "Compliant"
-  },
-  "T016": {
-    "missed_windows": 0,
-    "penalty_level": "OK",
-    "note": "Compliant"
-  },
-  "T017": {
     "missed_windows": 5,
     "penalty_level": "PENALIZED",
     "note": "Multiple activity gaps"
   },
-  "T018": {
+  "T013": {
     "missed_windows": 1,
     "penalty_level": "OK",
     "note": "Compliant"
+  },
+  "T014": {
+    "missed_windows": 3,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
+  },
+  "T015": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T016": {
+    "missed_windows": 1,
+    "penalty_level": "OK",
+    "note": "Compliant"
+  },
+  "T017": {
+    "missed_windows": 6,
+    "penalty_level": "REVIEW",
+    "note": "Severe inactivity \u2013 review required"
+  },
+  "T018": {
+    "missed_windows": 2,
+    "penalty_level": "WARNING",
+    "note": "Low activity detected"
   }
 }
